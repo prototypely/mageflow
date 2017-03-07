@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://gq3o8.mageflow.net/" />
+<title>LIVE_Mgnto_CREATE_Website_RandomName</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LIVE_Mgnto_CREATE_Website_RandomName</td></tr>
+</thead><tbody>
+<tr>
+	<td>setSpeed</td>
+	<td>250</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//ul[@id='nav']/li[10]/ul/li[14]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@title='Create Website']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{new Date().getTime()}</td>
+	<td>rndmWebsite</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=website_name</td>
+	<td>Test Website Nr. ${rndmWebsite}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=website_code</td>
+	<td>test_website_nr_${rndmWebsite}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@title='Save Website']</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

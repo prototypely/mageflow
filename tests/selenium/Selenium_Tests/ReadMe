@@ -1,0 +1,119 @@
+-------------------------------------------------
+x. Chapter. Before testing answer next questions:
+    Do you want to test as provided test user - jyritamm908@gmail.com?
+    or
+    Do you want to test as random user?
+    or 
+    Do you want to test as user created by You?
+
+        Read more below - Administration of Users
+
+
+
+
+
+--------------------------------------------------------------------
+x. Chapter. UNDERSTAND that Test suites are collections of TestCases
+
+
+
+
+
+
+---------------------------------
+x. Chapter. FOLDERS and FILENAMES
+
+
+    FOLDERS of TestCases
+        FOLDER_Selenium_Tests_Folder
+            ReadMe
+                FOLDER_Selenium_Test_Cases_All
+                FOLDER_Selenium_Test_Suites_TEST_environment
+                FOLDER_Selenium_Test_Suites_LIVE_environment
+    	
+
+
+
+    FILENAMES of TestCases
+        TEST_   MF_     Signup_
+        LIVE_   Mgnto_  Signin_
+                        Create_     Project
+                        Access_     Instance
+                        Connect_    MF_
+                        Recover_    Transact_email
+
+
+
+    FILENAMES of Test Suites:
+        TEST    Selenium    Test    Suite   Short
+        LIVE                                Long
+
+
+
+
+
+
+-----------------------------------        
+x. Chapter. CONTENTS of Test Suites
+    LIVE_Selenium_Test_Suite_1_short
+        Login as jyritamm908@gmail.com
+        Create Project
+        Create Instance
+
+    LIVE_Selenium_Test_Suite_2_short
+        Login as jyritamm908@gmail.com
+        Create Project
+        Create Instance
+        Access Instance
+        Connect to MageFlow
+    
+
+
+
+
+
+
+
+
+---------------------------------------------
+x. Chapter. USERS ADMINISTRATION in TestCases:
+	1. Existing testuser - jyritamm908@gmail.com
+	2. Created random user, connects with account [RandomUserName]@peeter.mageflow.com
+	3. User created by current tester
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------
+x. Chapter. Advice'is to work with Selenium IDE
+    
+    First OPEN only one TestCase - Cntrl+O
+    Then ADD another TestCase(s) - Cntrl+D
+
+    Do not rename testCases what belongs to a test suite or if you need/want to - then you have to construct these suites again.
+
+
+
+
+    Working with Random Names or Users always first:
+        
+        in MageFlow:
+            Create Project, 
+                then Instance 
+
+        in Magento:
+            Create Website, 
+                then Store,    
+                    then Store view,
+                        then CMS Page
+
+

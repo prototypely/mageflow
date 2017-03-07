@@ -1,0 +1,9 @@
+KNOWN ISSUES AND LIMITATIONS OF MAGEFLOW 2.0
+
+* This version works only with Magento Community Edition 1.7 and newer. There's a separate extension for Magento Enterprise Edition.
+* Only simple products can be migrated
+* It's strongly recommended to migrate between Magento instances with the same version number.
+Migrations from olded Magento version to newer may work with.
+Due to changes in Magento attribute classes migrations from newer Magento versions to older may fail. Some simple types, however, may work e.g CMS pages and blocks. MageFlow is a complex system and there may be some compatibility issues when migrating between different versions of Magento. Usually the issues exist when migrating data from newer to older.
+
+

@@ -1,0 +1,39 @@
+#    __  __                  ______ _
+#   |  \/  |                |  ____| |
+#   | \  / | __ _  __ _  ___| |__  | | _____      __
+#   | |\/| |/ _` |/ _` |/ _ \  __| | |/ _ \ \ /\ / /
+#   | |  | | (_| | (_| |  __/ |    | | (_) \ V  V /
+#   |_|  |_|\__,_|\__, |\___|_|    |_|\___/ \_/\_/
+#                  __/ |
+#                 |___/
+#
+#/**
+# * Modman file for Mageflow Magento Extension
+# *
+# * @category   MFX
+# * @package    Mageflow_Connect
+# * @author     Prototypely Ltd, Estonia <info@prototypely.com>
+# * @copyright  Copyright © 2017 Prototypely Ltd, Estonia (http://prototypely.com) 
+# * @license MIT Copyright (c) 2017 Prototypely Ltd
+# * @link       http://mageflow.com/
+# */
+
+app/code/community/Mageflow/Connect                             app/code/community/Mageflow/Connect
+app/etc/modules/Mageflow_Connect.xml                            app/etc/modules/Mageflow_Connect.xml
+app/design/adminhtml/default/default/template/mageflow/connect  app/design/adminhtml/default/default/template/mageflow/connect
+app/design/adminhtml/default/default/layout/mageflow/connect    app/design/adminhtml/default/default/layout/mageflow/connect
+app/design/frontend/base/default/layout/mageflow/connect        app/design/frontend/base/default/layout/mageflow/connect
+app/design/frontend/base/default/template/mageflow/connect      app/design/frontend/base/default/template/mageflow/connect
+lib/Mageflow/Connect                                            lib/Mageflow/Connect
+skin/adminhtml/default/default/mageflow/connect                 skin/adminhtml/default/default/mageflow/connect
+js/mageflow/connect                                             js/mageflow/connect
+shell/create_oauth_consumer.php                                 shell/create_oauth_consumer.php
+shell/create_backend_user.php                                   shell/create_backend_user.php
+shell/last_access_time.php                                   	shell/last_access_time.php
+shell/dump_oauth_keys.php                                   	shell/dump_oauth_keys.php
+shell/media_indexer.php                                         shell/media_indexer.php
+shell/reindex_changeitems.php                                   shell/reindex_changeitems.php
+var/connect/MageFlow_Connector.xml                              var/connect/MageFlow_Connector.xml
+var/connect/MageFlow.xml                                        var/connect/MageFlow.xml
+var/connect/package.xml                                         var/connect/package.xml
+tests								                            tests/mfx

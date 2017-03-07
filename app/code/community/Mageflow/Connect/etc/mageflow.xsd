@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://mageflow.com/magento/config" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" version="1.1" attributeFormDefault="unqualified"
+           targetNamespace="http://mageflow.com/magento/config">
+    <xs:element name="config" type="MagentoConfigType"></xs:element>
+    <xs:element name="dependency" type="TypeDependency"></xs:element>
+    <xs:element name="dependencies" type="TypeDependencies"></xs:element>
+
+    <xs:element name="attributes" type="TypeAttributes"></xs:element>
+    <xs:complexType name="MagentoConfigType">
+        <xs:annotation>
+            <xs:documentation>
+                Default Magento config container (
+                <config/>
+                element). This is the container for all Magento configuration
+                elements incl mageflow/config.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:all>
+            <xs:element name="global" type="AnyType"></xs:element>
+            <xs:element name="modules" type="AnyType"></xs:element>
+            <xs:element name="admin" type="AnyType"></xs:element>
+            <xs:element name="adminhtml" type="AnyType"></xs:element>
+            <xs:element name="frontend" type="AnyType"></xs:element>
+            <xs:element name="default" type="AnyType"></xs:element>
+            <xs:element name="mageflow" type="MageFlowConfig"
+                        maxOccurs="1" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        <mageflow/>
+                        element is container for all MageFlow Connector specific
+                        configuration.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="AnyType">
+        <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"></xs:any>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MageFlowConfig">
+        <xs:annotation>
+            <xs:documentation>
+                MageFlowConfig type holds MageFlow Connector specific
+                configuration like MageFlowTypes (types that are supported by
+                MageFlow).
+                Every developer can define new, custom types by adding
+                elements of type
+                MageFlowType under
+                <config/>
+                <mageflow/>
+                <types/>
+                element.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:all>
+            <xs:element name="types" type="MageFlowTypes" maxOccurs="1"
+                        minOccurs="1">
+            </xs:element>
+            <xs:element name="settings" type="MageFlowSettings" maxOccurs="1" minOccurs="0"></xs:element>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="MageFlowSettings">
+        <xs:sequence>
+            <xs:element name="var" type="MageFlowSetting" minOccurs="0"
+                        maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MageFlowSetting">
+        <xs:attribute name="name" type="xs:string"></xs:attribute>
+        <xs:attribute name="value" type="xs:string"></xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="MageFlowTypes">
+        <xs:sequence>
+            <xs:element name="type" type="MageFlowType" minOccurs="0"
+                        maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MageFlowType">
+        <xs:sequence>
+            <xs:element name="name" maxOccurs="1" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        One word, lowecase, can be same as
+                        magento_short_type.
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"></xs:minLength>
+                        <xs:whiteSpace value="collapse"></xs:whiteSpace>
+                        <xs:maxLength value="32"></xs:maxLength>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="magento_type" minOccurs="1" maxOccurs="1"
+                        type="xs:string">
+                <!-- Specifies mapping to Magento model's type (model class). Must 
+                    be fully qualified Magento class name. E.g Mage_Catalog_Model_Product, Mage_Cms_Model_Page 
+                    etc ... -->
+            </xs:element>
+            <xs:element name="magento_short_type" minOccurs="1"
+                        maxOccurs="1" type="xs:string">
+                <!-- Specifies short name of Magento model. Must be fully qualified 
+                    Magento short class name. E.g catalog/product, cms/block etc ... -->
+            </xs:element>
+            <xs:element name="description" minOccurs="0" maxOccurs="1"
+                        type="xs:string">
+            </xs:element>
+            <xs:element ref="attributes" maxOccurs="1" minOccurs="1"></xs:element>
+            <xs:element ref="dependencies" maxOccurs="1" minOccurs="1"></xs:element>
+        </xs:sequence>
+
+    </xs:complexType>
+
+    <xs:complexType name="TypeDependency">
+        <xs:annotation>
+            <xs:documentation>TypeDependency describes dependency of a
+                MageFlowType. Every MageFlowType can have dependencies that will
+                be required or processed together with the main type.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>Name of MageFlowType that current type depends
+                    on.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="priority" type="xs:integer" default="1"
+                      use="optional">
+            <xs:annotation>
+                <xs:documentation>Priority of dependency processing. The higher
+                    the integer the higher priority. Defaults to 1
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="TypeDependencies">
+        <xs:annotation>
+            <xs:documentation>Container for list of TypeDependencies.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="dependency" type="TypeDependency"
+                        minOccurs="0" maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TypeAttributes">
+        <xs:sequence>
+            <xs:element name="attribute" type="TypeAttribute"
+                        maxOccurs="unbounded" minOccurs="1"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TypeAttribute">
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    Name of field (attribute) to be mapped.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="magento_name" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    Magento object's attribute (field) name. Can be empty and is
+                    assumed to be the same than "name". Can be used to map
+                    custom names.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    Simple type name that can be picked from the documented
+                    list.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="string"></xs:enumeration>
+                    <xs:enumeration value="integer"></xs:enumeration>
+                    <xs:enumeration value="decimal"></xs:enumeration>
+                    <xs:enumeration value="boolean">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Holds string representation of boolean values:
+                                "true" or "false"
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="array">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Array type holds serialized value of an array
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="datetime">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Holds date time in format like 2014-04-21
+                                12:11:42
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="mfguid">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Holds MFGUID (64 hex characters)
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="store_code">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Holds code of a Magento store view. It requires
+                                special attention by the processing program.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="website_code">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Holds code of a Magento website. It requires
+                                special attention by the processing program.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="url">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Holds PUBLIC URL to a media file in Magento (i.e
+                                a file somewhere under /media folder).
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:enumeration>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="default" type="xs:string" default="NULL"
+                      use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    Default value that is added when value is missing. System
+                    default is NULL.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ignore" type="xs:boolean" default="false"
+                      use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    Specifies whether this attribute should be ignored during
+                    creation of a changeset item.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="additional_data" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    Additional data can be used to attach additional data to a
+                    type when changeset is created. It must be json_encoded
+                    string in the format of [key=value,key=value]. I.e array of
+                    key-value pairs
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute></xs:anyAttribute>
+    </xs:complexType>
+
+
+</xs:schema>

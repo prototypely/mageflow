@@ -1,0 +1,24 @@
+{
+    "name":"mageflow/mfx",
+    "type":"magento-module",
+    "license":"MIT",
+    "homepage":"https://github.com/prototypely/mageflow",
+    "description":"MageFlow Connect extension (MFX)",
+    "authors":[
+        {
+            "name":"Sven Varkel",
+            "email":"sven@mageflow.com"
+        },
+        {
+            "name":"Gert Stahl",
+            "email":"gert@mageflow.com"
+        },
+        {
+            "name":"Urmas Lipso",
+            "email":"urmas@mageflow.com"
+        }
+    ],
+    "require":{
+        "magento-hackathon/magento-composer-installer":"*"
+    }
+}

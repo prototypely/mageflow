@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://uf4b7.mageflow.net/" />
+<title>LIVE_Mgnto_CREATE_CMS_Page</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LIVE_Mgnto_CREATE_CMS_Page</td></tr>
+</thead><tbody>
+<tr>
+	<td>setSpeed</td>
+	<td>600</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//ul[@id='nav']/li[8]/ul/li/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@title='Add New Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{new Date().getTime()}</td>
+	<td>rndmPage</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=page_title</td>
+	<td>TestPage_${rndmPage}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=page_identifier</td>
+	<td>testpage_${rndmPage}</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>//select[@id='page_store_id']</td>
+	<td>label=regexp:\s+Random Store Nr. ${rndmStoreName}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//select[@id='page_is_active']</td>
+	<td>Enabled Disabled</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@title='Save Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=page_content_heading</td>
+	<td>TestPage_${rndmPage} Content Heading</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@id='page_content_code']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//textarea[@id='htmlSource']</td>
+	<td>&lt;p&gt;It's a TestPage_${rndmPage} content&lt;/p&gt;</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@id='insert']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@title='Save Page']</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+/**
+ * styles.css
+ *
+ *
+ * @category   MFX
+ * @package    Mageflow_Connect
+ * @subpackage Skin
+ * @author     Prototypely Ltd, Estonia <info@prototypely.com>
+ * @copyright  Copyright © 2017 Prototypely Ltd, Estonia (http://prototypely.com) 
+ * @license MIT Copyright (c) 2017 Prototypely Ltd
+ * @link       http://mageflow.com/
+ */
+
+.success-icon, .form-list td.success-icon{
+    background: url('../images/success_msg_icon.gif') right center no-repeat transparent !important;
+}

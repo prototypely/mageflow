@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="../Selenium_Test_Cases_All/LIVE_Mgnto_CREATE_Website">LIVE_Mgnto_CREATE_Website</a></td></tr>
+<tr><td><a href="../Selenium_Test_Cases_All/LIVE_Mgnto_CREATE_Store">LIVE_Mgnto_CREATE_Store</a></td></tr>
+<tr><td><a href="../Selenium_Test_Cases_All/LIVE_Mgnto_CREATE_Store_view">LIVE_Mgnto_CREATE_Store_view</a></td></tr>
+<tr><td><a href="../Selenium_Test_Cases_All/LIVE_Mgnto_CREATE_CMS_Page">LIVE_Mgnto_CREATE_CMS_Page</a></td></tr>
+<tr><td><a href="../Selenium_Test_Cases_All/LIVE_Mgnto_CREATE_Attrib">LIVE_Mgnto_CREATE_Attrib</a></td></tr>
+<tr><td><a href="../Selenium_Test_Cases_All/LIVE_Mgnto_CREATE_Attrib_Set">LIVE_Mgnto_CREATE_Attrib_Set</a></td></tr>
+<tr><td><a href="../Selenium_Test_Cases_All/LIVE_Mgnto_CREATE_Product">LIVE_Mgnto_CREATE_Product</a></td></tr>
+<tr><td><a href="../Selenium_Test_Cases_All/LIVE_Mgnto_CREATE_Transact_email">LIVE_Mgnto_CREATE_Transact_email</a></td></tr>
+</tbody></table>
+</body>
+</html>

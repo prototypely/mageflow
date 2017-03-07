@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+
+/**
+ * Mageflow_Connect.xml
+ *
+ *
+ * @category   MFX
+ * @package    Mageflow_Connect
+ * @subpackage Lib
+ * @author     Prototypely Ltd, Estonia <info@prototypely.com>
+ * @copyright  Copyright © 2017 Prototypely Ltd, Estonia (http://prototypely.com) 
+ * @license MIT Copyright (c) 2017 Prototypely Ltd
+ * @link       http://mageflow.com/
+ */
+-->
+<config>
+    <modules>
+        <Mageflow_Connect>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Mageflow_Connect>
+    </modules>
+</config>

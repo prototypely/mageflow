@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://app.mageflow.com/" />
+<title>LIVE_MF_DELETE_Project_last</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LIVE_MF_DELETE_Project_last</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Remove project')])[last()]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[contains(text(),'Delete')])[last()]</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<_>
+   <form_key>O1jL6ZvTbgSg5iiH</form_key>
+   <name>MageFlowConnector</name>
+   <channel>community</channel>
+   <version_ids>
+      <version_ids>2</version_ids>
+   </version_ids>
+   <summary>MageFlow Connector integrates a Magento instance with MageFlow.</summary>
+   <description>MageFlow is an essential tool for every Magento development team.
+MageFlow Connector integrates a Magento instance to MageFlow REST API.</description>
+   <license>OSL 3.0</license>
+   <license_uri>http://opensource.org/licenses/osl-3.0.php</license_uri>
+   <version>1.6.0</version>
+   <stability>stable</stability>
+   <notes>0.1.0 This is a pre-beta release.
+0.3.0 Almost beta quality release.
+0.3.1 Packaging fix
+0.3.2 Added missing jQuery map file
+0.3.3 Bugfix in company data
+0.3.4 Added MFx tag to frontend HTML
+0.4.0 More entities fixed, website packed
+0.4.1 oauth setup shell script, API data format update
+0.4.2 Fixed Advanced Maintenance mode. It can be switched from the backend and via API.
+0.4.3 Fixed bug in setup scripts that prevented installation
+0.5.0 Beta release of MFx
+0.5.1 Fixes in API resources, fixed rollback
+0.5.2 Added cache cleaning before creating OAuth user
+0.5.3 Changes in system/info format
+0.6.0 Lot of fixes, change in system/log format, caching
+0.6.1 ** Bug
+    * [MFX-1] - Head.php invalid argument Warning in the logs
+    * [MFX-2] - Fatal error in HtmlRenderer
+    * [MFX-4] - Wrong password reset link in the e-mail sent by MFx
+0.6.2 Packaging fix
+0.6.3 - ** Bug
+    * [MFX-6] - create_backend_user script is linked from wrong place
+0.7.0 
+** Bug
+    * [MFX-5] - Error when trying to send cahngeset from pushgrid
+** Task
+    * [MFX-7] - Review all logging and make it use log levels
+0.7.1
+Bug
+[MFX-9] - catalog/attribute and catalog/attributeset return empty list
+[MFX-11] - Root category not mapped properly when website is migrated
+[MFX-12] - After migrating websites form M1 to M2 there is an empty store and store view row
+0.7.2 bugfixes
+0.7.3 
+** Bug
+    * [MFX-17] - Generate initial GUID for Magento&apos; root category
+0.7.4
+0.7.5
+** Improvement
+    * [MFX-8] - Send Project id when Pull grid asks for Changesets
+0.7.6
+0.7.7
+** Bug
+    * [MFX-22] - Grid ordering doesn&apos;t work and default ordering should be by time descending
+    * [MFX-23] - Grid filter on preview field breaks Magento
+0.7.8 
+Various bugs
+0.7.9
+** Story
+    * [MFX-29] - As API User I want to make request to ping resource to check API status
+0.7.10
+    * [MFX-16] - Admin user changeset data is invalid
+    * [MFX-30] - Automatic login from MF not working in test
+0.7.11
+** Task
+    * [MFX-33] - Add SSL peer verification to Oauth client
+0.8.0
+** Bug
+    * [MFX-24] - Remove commented code
+    * [MFX-25] - Modify MageFlow API settings view
+    * [MFX-26] - Fix license URL to http://mageflow.com/license/connector/eula.txt
+    * [MFX-27] - Fix docblock
+    * [MFX-28] - Fix license URL to http://mageflow.com/license/connector/eula.txt
+    * [MFX-34] - Fix oauth setup API resource URL
+
+** Improvement
+    * [MFX-31] - Refactor this method body to a separate model
+
+0.8.1
+** Bug
+    * [MFX-35] - Fix api resource &amp; field names when authenticating MF-login
+Release Notes - Magento Connector - Version 0.8.2
+** Bug
+    * [MFX-37] - create_oauth_consumer.php does not exit with proper exit code
+
+0.8.3
+ * refactoring and bugfixes in connection dialog
+
+0.9.0
+** Bug
+    * [MFX-39] - Packing and transfering of catalog/attributeset does not work properly
+    * [MFX-40] - Too much log kills Magento (memory, print_r)
+
+0.9.1
+** Bug
+    * [MFX-42] - Missing class file for Helper/Handler/System/User
+    * [MFX-43] - Call to undefined method Mageflow_Connect_Helper_Handler_System_User::systemUserHandler() in /srv/vhosts/v2c0w.test.mageflow.net/public/app/code/community/Mageflow/Connect/Model/Api2/System/User/Rest/Admin/V1.php on line 108
+    * [MFX-44] - Role info is not read when admin user changeset is imported to receving instance
+
+0.9.2
+** Bug
+    * [MFX-47] - Magento WYSIWYG file model absolute URL is wrong
+** New Feature
+    * [MFX-45] - Create Media Index and perform initial media indexing
+
+0.9.3
+** Bug
+    * [MFX-48] - Wrong entity entity handlers in pullAction and applyAction
+** New Feature
+    * [MFX-46] - Add API resource that would handle cms media
+1.0.0 Official stable release.
+
+1.0.1 
+** Bug
+    * [MFX-50] - PHP 5.3 compatibility issue
+
+1.0.2
+** Bug
+    * [MFX-52] - AttributeSet cannot be migrated
+
+1.0.3
+** Bug
+    * [MFX-53] - White page after saving system config
+
+1.0.4
+** Bug
+    * [MFX-54] - Attribute set preview (name) is empty in the push grid
+
+1.0.5
+* MFX is now installed via Magento Connect automatically
+
+1.0.6
+Change base url bugfix
+
+1.1.0
+** Bug
+    * [MFX-13] - Category mapping in changeset item is invalid
+    * [MFX-38] - Empty project name
+    * [MFX-51] - Undefined indexes
+** Task
+    * [MFX-57] - Implement &quot;Connect to MageFlow&quot;
+
+1.2.2
+
+** Bug
+    * [MFX-61] - Product PUT response does not contain entities
+    * [MFX-62] - Product POST does not work
+    * [MFX-63] - Website resource response does not contain website MFGUIDs
+    * [MFX-64] - Product resource category IDS are integers instead of category MFGUIDs
+    * [MFX-65] - Product stock_data is not PUT or POSTed correctly
+    * [MFX-115] - Attributes are also created as changesetitems when attribute set is saved
+    * [MFX-116] - Creation of new attribute set failed
+    * [MFX-117] - Website is missing MF GUID in the Push grid
+    * [MFX-118] - Attribute set is missing MF GUID
+    * [MFX-119] - JS dialog with &quot;description&quot; is displayed in case &quot;Discard&quot; is selected
+    * [MFX-122] - System configuration change is not pulled correctly
+    * [MFX-124] - Admin Role changeset was not pulled
+    * [MFX-125] - Items are sorted randomly in Pull grid
+    * [MFX-127] - Admin user was not pulled correctly
+    * [MFX-129] - Table names hardcoded in update script
+    * [MFX-134] - Admin User is pulled without assigned Role
+    * [MFX-135] - Admin role resources not packed correctly
+    * [MFX-136] - Rename &quot;Push changes&quot; to &quot;Local Change Items&quot;
+    * [MFX-137] - Rename &quot;Pull changes&quot; to &quot;Remote Change Items&quot;
+    * [MFX-138] - Rename &quot;Refresh changeset cache&quot; to &quot;Refresh Remote Change Items&quot;
+
+** Improvement
+    * [MFX-66] - Display project and instance info in the backend under Test API
+    * [MFX-113] - Add MF_GUID column to push grid
+    * [MFX-126] - Create Pull grid caching
+    * [MFX-131] - Password could be added as a parameter to cmd line user creation script
+    * [MFX-132] - Add instance key to instance connect URL as parameter
+
+** Story
+    * [MFX-139] - I want to see &quot;Created by&quot; in the Remote Change Items grid
+
+** Task
+    * [MFX-60] - Fix base_url type
+    * [MFX-133] - Add &quot;Monitor this instance&quot; button with on/off options to MFX configuration view
+
+1.2.3
+
+Minor bugs
+
+1.2.4
+
+** Improvement
+    * [MFX-142] - I want to see (at least) Connection status in the Connect to MageFlow tab automatically after connecting
+
+1.2.5
+** Bug
+    * [MFX-147] - Replace &quot;Error&quot; with &quot;Disconnected&quot; in connection status view
+
+** Task
+    * [MFX-149] - Post notification about connection status to admin notification feed
+
+1.2.6
+
+** Bug
+    * [MFX-152] - Reorder Mageflow Connect menu under System-&gt;Configuration
+    * [MFX-153] - Attribute migration fails
+
+** Task
+    * [MFX-150] - Fix Remote Change Items grid columns
+
+1.2.7
+
+** Task
+    * [MFX-155] - Automatically create admin user with user&apos;s MageFlow e-mail to make automatic admin login work
+
+1.2.8
+
+** Bug
+    * [MFX-156] - Fix mass Pull - checking items not working after cache refresh, wrong id-s used when pulling
+
+1.2.9
+
+** Bug
+    * [MFX-162] - MFX not PHP 5.3 compatible
+
+1.2.10
+
+** Bug
+    * [MFX-161] - Changed Product migration from MF to Magento fails.
+
+1.2.11
+
+** Bug
+    * [MFX-159] - Changing entity &quot;Store&quot; in source Instance and pushing it into target Instance generates a new entity instead changing it.
+
+** Improvement
+    * [MFX-164] - Pass instance key as parameter to changesetitem request
+
+
+1.2.12
+
+** Bug
+    * [MFX-165] - Redirect broken in production
+
+Release Notes - Magento Connector - Version 1.2.13
+
+** Bug
+    * [MFX-166] - Duplicate headers sent in some cases
+
+1.2.14
+
+** Bug
+    * [MFX-170] - Pushing changeset item from Magento Push grid to MF, but trying to cancel it from description dialog box - it sends item to MF anyway.
+    * [MFX-173] - I want Demo Instances to have &quot;demo&quot; as type in default config
+
+1.3.0
+
+** Bug
+    * [MFX-157] - Displaying system log does not work
+    * [MFX-172] - &quot;failed to receive data from locale en_US&quot;
+
+** Improvement
+    * [MFX-163] - Remove jQuery dependency 
+
+** Story
+    * [MFX-140] - As a User I want to be able to migrate transactional e-mail templates
+
+** Task
+    * [MFX-56] - Fix change_base_url
+    * [MFX-174] - Add getLastAccessTime() to default helper 
+    * [MFX-175] - Add new API resource system/last_access_time
+    * [MFX-176] - Code review: PHP 5.3 compatibility
+
+1.3.1
+
+** Story
+    * [MFX-177] - Review and refactor changeset recovery process
+
+1.3.2
+
+** Bug
+    * [MFX-179] - Pull items not applied 
+    * [MFX-180] - Sorting pull grid messes up layout
+    * [MFX-182] - Bug in the category migration
+    * [MFX-185] - Category relocation does not create changeset
+    * [MFX-190] - Attribute Default Value does not migrate.
+    * [MFX-192] - Entity &quot;Website&quot; push from MageFlow to Magento fails
+
+** Improvement
+    * [MFX-186] - Add missing unit tests for the Observer
+    * [MFX-188] - Add interface for items that must have getMfGuid() method
+
+** Task
+    * [MFX-181] - Add content item MFGUID to change item metainfo
+
+1.3.3
+
+** Bug
+    * [MFX-200] - E-mail template does not get MFGUID column by upgrade scripts
+
+** Improvement
+    * [MFX-198] - Consolidate setup scripts
+
+** Task
+    * [MFX-199] - Add SQL script to remove all MageFlow tables and columns from database
+
+1.3.4
+
+** Bug
+    * [MFX-201] - User can not access newly created demo instance
+    * [MFX-202] - User can not establish connection from Magento into MF.
+
+1.3.5
+
+** Bug
+    * [MFX-206] - Undefined variable breaks installation from command line
+
+1.3.6
+
+** Bug
+    * [MFX-205] - An error occurs pushing changeset first time from newly created Magento instance - it does not ask for description.
+    * [MFX-225] - Admin role ACL not packed upon first save
+    * [MFX-226] - User&apos;s role is not packed into change item
+    * [MFX-232] - Can not migrate category created by user
+    * [MFX-240] - Simple products with custom option pushes not working
+
+** Story
+    * [MFX-208] - As a User I want to reindex all or selected value objects of supported entity types
+
+** Task
+    * [MFX-214] - Add instance type parameter to connect dialog redirect URL
+
+1.3.7
+
+** Task
+    * [MFX-245] - Ground rules link to Magento push and pull grid
+
+1.3.8
+
+** Bug
+    * [MFX-247] - Ground Rules URL is broken
+
+1.4.0
+
+** Task
+    * [MFX-252] - Add API resource newsletter/template
+    * [MFX-253] - Add API resource cms/widget
+    * [MFX-254] - Add API resource customer/group
+    * [MFX-256] - Add API resource sales/tax/class/product
+    * [MFX-259] - Add API resource system/design
+    * [MFX-263] - Add API resource cms/poll
+    * [MFX-264] - Add API resource system/orderstatus
+
+1.4.1
+
+** Bug
+    * [MFX-282] - Classloader problem in Windows (WAMP)
+    * [MFX-283] - sys_getloadavg called in Win
+
+1.4.2
+
+** Task
+    * [MFX-260] - Add API resource promotion/rule/catalog
+    * [MFX-261] - Add API resource promotion/rule/checkout
+    * [MFX-286] - Add API resource sales/termsandconditions
+    * [MFX-287] - Add API resource catalog/searchterms
+    * [MFX-289] - As a System I want a way to disable creating changeset from currently saved item
+
+1.4.3 
+
+Repackaging of 1.4.2 with all dependencies
+
+1.4.4
+
+** Bug
+    * [MFX-291] - mf_guid is not migrated correctly for stores/views
+
+1.4.5
+
+** Bug
+    * [MFX-294] - Fix mapping of Attributeset id to mf_guid
+
+1.4.6
+
+** Bug
+    * [MFX-238] - Some of the updates intermittently are not getting pulled
+    * [MFX-279] - Logging switch does not work
+    * [MFX-295] - Fix mapping of Tax Class id&lt;-&gt;mf_guid for Product
+
+1.4.7
+
+** Bug
+    * [MFX-301] - Refactor MFX, widget button should not be rewritten
+
+1.4.8
+
+** Bug
+    * [MFX-308] - getSettingValue() returns default values only
+    * [MFX-316] - Product status changed to &quot;disabled&quot; by migration
+    * [MFX-325] - MF GUID is not displayed properly in Pull Grid
+    * [MFX-326] - MFX calls beginTransaction() during Magento installation
+
+
+
+** Improvement
+    * [MFX-195] - Improve saving of initial configuration, compare against defaults
+
+** New Feature
+    * [MFX-304] - Make cleaning cache optional
+
+
+** Task
+    * [MFX-307] - Make API URL configurable in Magento admin
+    * [MFX-309] - Refactor custom URL-s into standard default/* structure in config.xml
+    * [MFX-318] - Prevent secret keys from being logged
+    * [MFX-324] - Make automatic truncating of pull grid cache configurable
+
+
+1.4.9
+
+** Bug
+    * [MFX-296] - Migrate multi-store data with Product
+    * [MFX-298] - Conf Products meta info specified for certain store view cannot be migrated
+    * [MFX-317] - System Configuration item scope_id is changed to 0 by migration
+    * [MFX-332] - Product prices not synced correctly
+    * [MFX-333] - Store level / localized translations not migrated
+    * [MFX-335] - Product attributes not migrated properly on store view level
+    * [MFX-337] - Problem with custom attributes and attribute sets
+    * [MFX-339] - tableExists bug in setup script
+    * [MFX-340] - Admin user account is locked up after connecting to MageFlow API if MF and mageflow usernames match
+
+
+1.5.0
+
+** Task
+    * [MFX-346] - Update Push grid to configurable tabbed interface
+
+** Bug
+    * [MFX-347] - Rework MFX Push grids back to non-ajax, leaving ajax options possible
+
+** Improvement
+    * [MFX-348] - Observer must save only enabled types
+
+
+1.5.1
+
+** Bug
+    * [MFX-349] - CMS data types NOT saved if OTHER is disabled
+    * [MFX-350] - Push grid reset messes up layout (loads double view)
+    * [MFX-351] - CMS Node saving not supported in 1.5.0
+    * [MFX-357] - MFX does not show description window on migration.
+
+
+1.5.2
+
+** Bug
+    * [MFX-345] - Undefined variable in product handler
+
+** Improvement
+    * [MFX-360] - Make collectiong performance information optional and clean old records
+    * [MFX-361] - Add new events to the API
+
+
+1.5.3
+
+** Bug
+    * [MFX-362] - Error while pulling product?
+
+1.5.4
+
+** Bug
+    * [MFX-364] - Call to a member function getAttributeCode() on a non-object
+
+1.5.6
+
+** Bug
+    * [MFX-365] - Impossible to pull products with images
+
+1.6.0
+
+** Bug
+    * [MFX-367] - Old-fashioned admin routing in config.xml breaks Magento</notes>
+   <authors>
+      <name>
+         <name>Sven Varkel</name>
+         <name>Urmas Lipso</name>
+         <name>MageFlow</name>
+      </name>
+      <user>
+         <user>svenvarkel</user>
+         <user>urmaslipso</user>
+         <user>mageflow</user>
+      </user>
+      <email>
+         <email>sven@mageflow.com</email>
+         <email>urmas@mageflow.com</email>
+         <email>info@mageflow.com</email>
+      </email>
+   </authors>
+   <depends_php_min>5.2.0</depends_php_min>
+   <depends_php_max>6.0.0</depends_php_max>
+   <depends>
+      <package>
+         <name>
+            <name/>
+         </name>
+         <channel>
+            <channel/>
+         </channel>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+         <files>
+            <files>                                                                                                                                                                                                                     </files>
+         </files>
+      </package>
+      <extension>
+         <name>
+            <name>Core</name>
+         </name>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+      </extension>
+   </depends>
+   <contents>
+      <target>
+         <target>magelocal</target>
+         <target>mageetc</target>
+         <target>magecommunity</target>
+         <target>mageweb</target>
+         <target>magelib</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
+         <target>mageskin</target>
+         <target>magedesign</target>
+         <target>magedesign</target>
+         <target>mage</target>
+         <target>mage</target>
+         <target>mage</target>
+      </target>
+      <path>
+         <path/>
+         <path>modules/Mageflow_Connect.xml</path>
+         <path>Mageflow/Connect</path>
+         <path>js/mageflow/connect</path>
+         <path>Mageflow/Connect</path>
+         <path>adminhtml/default/default/layout/mageflow/connect</path>
+         <path>adminhtml/default/default/template/mageflow/connect</path>
+         <path>adminhtml/default/default/mageflow/connect</path>
+         <path>frontend/base/default/layout/mageflow/connect</path>
+         <path>frontend/base/default/template/mageflow/connect</path>
+         <path>shell/create_oauth_consumer.php</path>
+         <path>shell/create_backend_user.php</path>
+         <path>shell/reindex_changeitems.php</path>
+      </path>
+      <type>
+         <type>file</type>
+         <type>file</type>
+         <type>dir</type>
+         <type>dir</type>
+         <type>dir</type>
+         <type>dir</type>
+         <type>dir</type>
+         <type>dir</type>
+         <type>dir</type>
+         <type>dir</type>
+         <type>file</type>
+         <type>file</type>
+         <type>file</type>
+      </type>
+      <include>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+         <include/>
+      </include>
+      <ignore>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore>#tests/#</ignore>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+      </ignore>
+   </contents>
+</_>

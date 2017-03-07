@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * MageFlow Connector Magento extension system configuration file
+ *
+ * @category   MFX
+ * @package    Mageflow_Connect
+ * @subpackage Configuration
+ * @author     Prototypely Ltd, Estonia <info@prototypely.com>
+ * @copyright  Copyright © 2017 Prototypely Ltd, Estonia (http://prototypely.com) 
+ * @license MIT Copyright (c) 2017 Prototypely Ltd
+ * @link       http://mageflow.com/
+ */
+-->
+<config>
+    <tabs>
+        <mageflow translate="label" module="mageflow_connect">
+            <label>MageFlow</label>
+            <sort_order>999990</sort_order>
+        </mageflow>
+    </tabs>
+    <sections>
+        <mageflow_connect>
+            <label>MageFlow</label>
+            <tab>mageflow</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <api translate="label">
+                    <label>Connect Mageflow</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+                        <![CDATA[Connect this Magento instance to another Magento instance by clicking the button below.]]></comment>
+                    <fields>
+                        <!--<button_connect translate="label">-->
+                            <!--<frontend_type>export</frontend_type>-->
+                            <!--<frontend_model>mageflow_connect/system_config_api_connectmf</frontend_model>-->
+                            <!--<sort_order>10</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>0</show_in_website>-->
+                            <!--<show_in_store>0</show_in_store>-->
+                        <!--</button_connect>-->
+                        <url translate="label">                            
+                            <label>Target base URL:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </url>
+                        <consumer_key>
+                            <label>Consumer key</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </consumer_key>
+                        <consumer_secret>
+                            <label>Consumer secret</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </consumer_secret>
+                        <token>
+                            <label>Token</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </token>
+                        <token_secret>
+                            <label>Token secret</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </token_secret>
+                        <button_oauth_connect translate="label">
+                            <frontend_type>export</frontend_type>
+                            <frontend_model>mageflow_connect/system_config_api_oauthconnectbutton</frontend_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </button_oauth_connect>
+                        <button_test_api translate="label">
+                            <frontend_type>export</frontend_type>
+                            <frontend_model>mageflow_connect/system_config_api_testbutton</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </button_test_api>
+                    </fields>
+                </api>
+                <apitest translate="label">
+                    <label>Test MageFlow connection status</label>
+                    <sort_order>90</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[Test MageFlow connection status by clicking the button below.]]></comment>
+                    <fields>
+                    </fields>
+                </apitest>
+                <advanced translate="label">
+                    <frontend_type>text</frontend_type>
+                    <label>Advanced settings</label>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <toggle_connect translate="label">
+                            <frontend_type>export</frontend_type>
+                            <frontend_model>mageflow_connect/system_config_api_togglemonitor</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </toggle_connect>
+                        <pull_days_back>
+                            <label>Number of days to pull changeset items:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                       Specify number of days to pull changeset items for. If the number is too large
+                                       the number of changeset items may become too large and thus it would slow down processing.
+                                       If the number is too small you may not get older changeset items from MageFlow API.
+                                       Reasonable number is between 15 and 60.
+                                ]]>
+                            </comment>
+                        </pull_days_back>
+                        <log_enabled translate="label">                            
+                            <label>Logging enabled:</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </log_enabled>
+                        <log_level translate="label">                            
+                            <label>Logging level:</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <source_model>mageflow_connect/system_config_api_levellist</source_model>
+                        </log_level>
+                        <log_lines>
+                            <label>Number of log lines</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-not-negative-number</validate>       
+                            <comment>
+                                <![CDATA[
+                                        This value specifies the number of lines from the end of the log files to be delivered via API.
+                                        MageFlow will deliver logs from the files that are defined under Advanced->Developer->Log Settings.
+                                        Be careful with very large values (<5000). Recommended and fail safe default
+                                        is 100.
+                                ]]>
+                            </comment>
+                                                 
+                        </log_lines>
+                        <auto_clean_cache translate="label">
+                            <label>Clean Magento cache automatically</label>
+                            <comment><![CDATA[If true then Magento cache is flushed upon every Change Item migration. It may impact Magento performance in busy sites. Leave it to false to clean cache manually.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </auto_clean_cache>
+                        <auto_truncate_cache translate="label">
+                            <label>Truncate pull grid cache automatically</label>
+                            <comment><![CDATA[If true then pull grid cache is truncated before every update (update process is a Magento cron job)]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </auto_truncate_cache>
+                        <enable_collecting_memory translate="label">
+                            <label>Collect memory and CPU usage?</label>
+                            <comment><![CDATA[If this is enabled then Mageflow extension stores memory and CPU usage info to database for each request made to this Magento. NOTE! It can grow database quite big.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_collecting_memory>
+                        <auto_clean_collected_memory translate="label">
+                            <label>Regularly clean collected memory and CPU usage?</label>
+                            <comment><![CDATA[If this is enabled then Mageflow extension cleans collected memory and CPU usage weekly]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </auto_clean_collected_memory>
+                        <connect_url translate="label">                            
+                            <label>Connect URL:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[User will be redirected to this URL after clicking on "Connect" button]]></comment>
+                        </connect_url>
+                    </fields>
+                </advanced>
+                <system translate="label">
+                    <label>System settings</label>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <maintenance_mode translate="label">
+                            <label>Maintenance mode enabled?</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment>
+                                <![CDATA[
+                                MageFlow switches on Maintenance Mode so that you will still be able to access
+                                Magento Backend (these pages here) while in the frontend "Under Maintenance"
+                                page is displayed.
+                                ]]>
+                            </comment>
+                        </maintenance_mode>
+                    </fields>
+                </system>
+                <enabled_types translate="label">
+                    <label>Enabled types</label>
+                    <sort_order>600</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable_cms_page translate="label">
+                            <label>Enable CMS:Page</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_cms_page>
+                        <enable_cms_block>
+                            <label>Enable CMS:Block</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_cms_block>
+                        <enable_cms_widget>
+                            <label>Enable CMS:Widget</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_cms_widget>
+                        <enable_cms_poll>
+                            <label>Enable CMS:Poll</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_cms_poll>
+                        <enable_promotion_catalog>
+                            <label>Enable Promotions: Catalog</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_promotion_catalog>
+                        <enable_promotion_cart>
+                            <label>Enable Promotions:Shopping Cart</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_promotion_cart>
+                        <enable_catalog_category>
+                            <label>Enable Catalog: Categories</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_catalog_category>
+                        <enable_catalog_attribute>
+                            <label>Enable Catalog: Attributes</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_catalog_attribute>
+                        <enable_catalog_attributeset>
+                            <label>Enable Catalog: Attribute sets</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_catalog_attributeset>
+                        <enable_catalog_product>
+                            <label>Enable Catalog: Products</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_catalog_product>
+                        <enable_configuration>
+                            <label>Enable Catalog: Simple products</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_configuration>
+                        <enable_other>
+                            <label>Enable Other</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_other>
+                    </fields>
+                </enabled_types>
+            </groups>
+        </mageflow_connect>
+    </sections>
+</config>

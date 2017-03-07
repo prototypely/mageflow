@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://app.mageflow.com/" />
+<title>LIVE_MF_Sign_up_as_random_user</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LIVE_MF_Sign_up_as_random_user</td></tr>
+</thead><tbody>
+<tr>
+	<td>setSpeed</td>
+	<td>400</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>https://app.mageflow.com/secure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Create an account</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{new Date().getTime()}</td>
+	<td>randTestUser</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@id='email_signup']</td>
+	<td>test-${randTestUser}@peeter.mageflow.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@id='first_name_signup']</td>
+	<td>jyri${randTestUser}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@id='last_name_signup']</td>
+	<td>tamm${randTestUser}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@id='password_signup']</td>
+	<td>Rebasejuurikas1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@id='password_again_signup']</td>
+	<td>Rebasejuurikas1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@id='company_name_signup']</td>
+	<td>Firma${randTestUser}</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//select[@id='company_country_signup']</td>
+	<td>label=United States</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@id='agreement']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@id='submit_signup']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

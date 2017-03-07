@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * phpunit.xml
+ *
+ *
+ * @category   MFX
+ * @package    Mageflow_Connect
+ * @subpackage Lib
+ * @author     Prototypely Ltd, Estonia <info@prototypely.com>
+ * @copyright  Copyright © 2017 Prototypely Ltd, Estonia (http://prototypely.com) 
+ * @license MIT Copyright (c) 2017 Prototypely Ltd
+ * @link       http://mageflow.com/
+ */
+-->
+<phpunit bootstrap="./bootstrap.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true">
+    <testsuites>
+        <testsuite name="src">
+            <directory>src</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
+

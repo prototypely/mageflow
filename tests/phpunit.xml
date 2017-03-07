@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
+         bootstrap="./bootstrap.php"
+         backupGlobals="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnError="true"
+         stopOnFailure="true"
+         verbose="true"
+         strict="false"
+        >
+    <php>
+        <env name="bamboo_base_url" value="http://mfxee01.dev.mageflow.com/api/rest"/>
+        <env name="bamboo_consumer_key" value="c1b0gv74jr0fyqglqxhtit3wdaq0ni8y"/>
+        <env name="bamboo_consumer_secret" value="wc6ade4nqeq0pj2x7uf9rs85fh7q6zrq"/>
+        <env name="bamboo_token" value="ydwlgcymbx4goizllylxm5thmfyt7ti7"/>
+        <env name="bamboo_token_secret" value="0n5qgebcxlhc2188qqcl5treul596uic"/>
+    </php>
+    <testsuites>
+        <testsuite name="app">
+            <directory>app</directory>
+        </testsuite>
+        <testsuite name="api">
+            <directory>api</directory>
+        </testsuite>
+        <testsuite name="post">
+            <directory>api/post</directory>
+        </testsuite>
+    </testsuites>
+    <!--<logging>-->
+    <!--<log type="coverage-html" target="/srv/vhosts/report" charset="UTF-8"-->
+    <!--highlight="false" lowUpperBound="35" highLowerBound="70"/>-->
+
+    <!--</logging>-->
+</phpunit>
+

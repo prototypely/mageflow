@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * layout.xml
+ *
+ * @category   MFX
+ * @package    Mageflow_Connect
+ * @subpackage Lib
+ * @author     Prototypely Ltd, Estonia <info@prototypely.com>
+ * @copyright  Copyright © 2017 Prototypely Ltd, Estonia (http://prototypely.com) 
+ * @license MIT Copyright (c) 2017 Prototypely Ltd
+ * @link       http://mageflow.com/
+ */
+-->
+<layout>
+    <default>
+        <reference name="before_body_end">
+            <!-- Do not remove this block or MageFlow cannot detect your Magento store properly -->
+            <block type="core/template" name="mageflow_tag" template="mageflow/connect/tag.phtml" />
+        </reference>
+    </default>
+</layout>

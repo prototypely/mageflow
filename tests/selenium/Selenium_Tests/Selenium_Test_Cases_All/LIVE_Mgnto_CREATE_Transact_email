@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://h04vq.mageflow.net/" />
+<title>Magento_Transact_email_add_Random</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Magento_Transact_email_add_Random</td></tr>
+</thead><tbody>
+<tr>
+	<td>setSpeed</td>
+	<td>250</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.active &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//ul[@id='nav']/li[10]/ul/li[8]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@title='Add New Template']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//select[@id='template_select']</td>
+	<td>label=Contact Form</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//select[@id='locale_select']</td>
+	<td>label=Danish (Denmark)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{new Date().getTime()}</td>
+	<td>rndmEmailName</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@id='template_code']</td>
+	<td>PeeterEmail-${rndmEmailName}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@id='template_subject']</td>
+	<td>Tere Klient</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//textarea[@id='template_text']</td>
+	<td>Tere kallis klient!<br />How are you?<br />P</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[@title='Save Template']</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

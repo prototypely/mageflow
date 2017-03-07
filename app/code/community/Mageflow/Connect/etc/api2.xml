@@ -1,0 +1,2271 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageFlow Connector Magento extension REST API configuration file
+ *
+ * @category   MFX
+ * @package    Mageflow_Connect
+ * @subpackage Configuration
+ * @author     Prototypely Ltd, Estonia <info@prototypely.com>
+ * @copyright  Copyright © 2017 Prototypely Ltd, Estonia (http://prototypely.com) 
+ * @license MIT Copyright (c) 2017 Prototypely Ltd
+ * @link       http://mageflow.com/
+ */
+-->
+<config>
+    <api2>
+        <resource_groups>
+            <general translate="title" module="mageflow_connect">
+                <title>General resources</title>
+                <sort_order>1000</sort_order>
+                <children>
+                    <help_index translate="title" module="mageflow_connect">
+                        <title>API Help</title>
+                        <sort_order>100</sort_order>
+                    </help_index>
+                </children>
+            </general>
+            <mageflow translate="title" module="mageflow_connect">
+                <title>MageFlow</title>
+                <sort_order>10</sort_order>
+            </mageflow>
+        </resource_groups>
+        <resources>
+            <ping translate="title" module="mageflow_connect">
+                <group>general</group>
+                <model>mageflow_connect/api2_ping</model>
+                <title>Ping Magento REST API</title>
+                <sort_order>5</sort_order>
+                <privileges>
+                    <admin>
+                        <retrieve>1</retrieve>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <timestamp>Ping timestamp</timestamp>
+                    <system_load>System load</system_load>
+                    <free_memory>Free memory</free_memory>
+                    <free_disk>Free disk</free_disk>
+                    <active_sessions>Active sessions</active_sessions>
+                    <mfx_version>MFX version</mfx_version>
+                    <base_url>Base URL</base_url>
+                    <instance_key>Instance key</instance_key>
+                </attributes>
+                <routes>
+                    <entity>
+                        <route>/ping</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                </routes>
+                <versions>1</versions>
+            </ping>
+            <help translate="title" module="mageflow_connect">
+                <group>general</group>
+                <model>mageflow_connect/api2_help</model>
+                <title>Help Index</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <info>General info</info>
+                    <resources>Resources</resources>
+                </attributes>
+                <routes>
+                    <entity>
+                        <route>/help/</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                </routes>
+                <versions>1</versions>
+            </help>
+
+            <cms_page translate="title" module="mageflow_connect" enabled="true">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_cms_page</model>
+                <working_model>cms/page</working_model>
+                <title>CMS Page</title>
+                <sort_order>20</sort_order>
+                <handler>mageflow_connect/handler_cms_page</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <content type="string">Content</content>
+                    <title type="string">Title</title>
+                    <root_template type="string">Root template</root_template>
+                    <meta_keywords type="string">Meta keywords</meta_keywords>
+                    <meta_description type="string">Meta description</meta_description>
+                    <identifier type="string">Identifier</identifier>
+                    <content_heading type="string">Content heading</content_heading>
+                    <created_at entity_field="creation_time" type="datetime">Created at</created_at>
+                    <updated_at entity_field="update_time" type="datetime">Updated at</updated_at>
+                    <is_active type="boolean">Is active?</is_active>
+                    <sort_order type="integer">Sort order</sort_order>
+                    <layout_update_xml type="string">Layout update XML</layout_update_xml>
+                    <custom_theme type="string">Custom theme</custom_theme>
+                    <custom_root_template type="string"></custom_root_template>
+                    <custom_layout_update_xml type="string">Custom layout update XML</custom_layout_update_xml>
+                    <custom_theme_from type="string">Custom theme from date</custom_theme_from>
+                    <custom_theme_to type="string">Custom theme to date</custom_theme_to>
+                    <content_custom type="string">Content custom</content_custom>
+                    <mf_guid type="mfguid">mf_guid</mf_guid>
+                    <deploymentpackage type="integer">deploymentpackage id</deploymentpackage>
+                    <stores type="store_code">stores</stores>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/cms/page/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/cms/page/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+
+                    <entity_with_store>
+                        <route>/cms/page/:key/store/:store</route>
+                        <action_type>entity</action_type>
+                    </entity_with_store>
+                    <collection>
+                        <route>/cms/page</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                    <collection_with_store>
+                        <route>/cms/page/store/:store</route>
+                        <action_type>collection</action_type>
+                    </collection_with_store>
+                </routes>
+                <versions>1</versions>
+            </cms_page>
+
+            <cms_block translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_cms_block</model>
+                <working_model>cms/block</working_model>
+                <title>CMS Static Block</title>
+                <sort_order>30</sort_order>
+                <handler>mageflow_connect/handler_cms_block</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="block_id" module="mageflow_connect">
+                    <identifier type="string">Block identifier</identifier>
+                    <title type="string">Title</title>
+                    <content type="string">Content</content>
+                    <created_at entity_field="creation_time" type="datetime">Created at</created_at>
+                    <updated_at entity_field="update_time" type="datetime">Updated at</updated_at>
+                    <is_active type="boolean">Is active?</is_active>
+                    <deploymentpackage type="integer">Deployment package for rollback</deploymentpackage>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                    <stores type="store_code">stores</stores>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/cms/block/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/cms/block/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <entity_with_store>
+                        <route>/cms/block/:key/store/:store</route>
+                        <action_type>entity</action_type>
+                    </entity_with_store>
+                    <collection>
+                        <route>/cms/block</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                    <collection_with_store>
+                        <route>/cms/block/store/:store</route>
+                        <action_type>collection</action_type>
+                    </collection_with_store>
+                </routes>
+                <versions>1</versions>
+            </cms_block>
+
+            <cms_media translate="title" module="mageflow_connect" enabled="false">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_cms_media</model>
+                <working_model>mageflow_connect/media_index</working_model>
+                <title>CMS Media</title>
+                <sort_order>40</sort_order>
+                <handler>mageflow_connect/handler_cms_media</handler>
+                <index_enabled>false</index_enabled>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes module="mageflow_connect">
+                    <filename type="string">Filename</filename>
+                    <hash type="string">File ID</hash>
+                    <basename type="string">Basename</basename>
+                    <path type="string">Absolute path</path>
+                    <mtime type="datetime">File modification time</mtime>
+                    <size type="integer">File size in bytes</size>
+                    <url type="url">File URL</url>
+                    <type type="string">File type</type>
+                    <hex type="string">Hex-encoded media content</hex>
+                    <created_at type="datetime">Created at</created_at>
+                    <updated_at type="datetime">Updated at</updated_at>
+                    <deploymentpackage type="integer">Deployment package for rollback</deploymentpackage>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/cms/media/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/cms/media/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/cms/media</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </cms_media>
+
+            <catalog_product translate="title" module="mageflow_connect">
+                <title>Catalog Product</title>
+                <sort_order>45</sort_order>
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_catalog_product</model>
+                <working_model>catalog/product</working_model>
+                <handler>mageflow_connect/handler_catalog_product</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <name>Product's name</name>
+                    <type_id>Product Type</type_id>
+                    <sku>Product's SKU (product code)</sku>
+                    <attribute_set_id>Attribute Set ID</attribute_set_id>
+                    <attribute_set_name>Attribute Set name</attribute_set_name>
+                    <has_options></has_options>
+                    <required_options/>
+                    <created_at/>
+                    <updated_at/>
+                    <mf_guid>MF GUID</mf_guid>
+                    <meta_title/>
+                    <meta_description/>
+                    <image/>
+                    <small_image/>
+                    <thumbnail/>
+                    <url_key/>
+                    <url_path/>
+                    <custom_design type="string"/>
+                    <page_layout/>
+                    <options_container/>
+                    <image_label/>
+                    <small_image_label/>
+                    <thumbnail_label/>
+                    <country_of_manufacture/>
+                    <msrp_enabled/>
+                    <msrp_display_actual_price_type/>
+                    <gift_message_available/>
+                    <price type="decimal"/>
+                    <special_price type="decimal"/>
+                    <weight/>
+                    <msrp/>
+                    <manufacturer/>
+                    <status type="integer"/>
+                    <is_recurring type="boolean"/>
+                    <visibility type="integer"/>
+                    <enable_googlecheckout type="boolean"/>
+                    <tax_class_id />
+                    <description type="string"/>
+                    <short_description type="string"/>
+                    <meta_keyword type="string"/>
+                    <custom_layout_update type="string"/>
+                    <special_from_date type="datetime"/>
+                    <special_to_date type="datetime"/>
+                    <news_from_date type="datetime"/>
+                    <news_to_date type="datetime"/>
+                    <custom_design_from type="datetime"/>
+                    <custom_design_to type="datetime"/>
+                    <group_price type="array"/>
+                    <media_gallery type="array">Product media gallery / images</media_gallery>
+                    <tier_price type="array"/>
+                    <stock_data type="array"/>
+                    <is_in_stock type="boolean"/>
+                    <use_config_gift_message_available type="boolean"/>
+                    <store_ids type="array"/>
+                    <category_ids type="array"/>
+                    <website_ids type="array"/>
+                    <store_codes type="array"/>
+                    <website_codes type="array"/>
+                    <product_options type="array"/>
+                    <store_mf_guids type="array"/>
+                    <website_mf_guids type="array"/>
+                    <entity_type_id>Entity type ID</entity_type_id>
+                    <related_products type="array" />
+                    <upsell_products type="array" />
+                    <crosssell_products type="array" />
+                    <configurable_attributes type="array" />
+                    <grouped_products type="array" />
+                    <links type="array" />
+                    <custom_options type="array" />
+                    <bundle_options type="array" />
+                    <price_view type="string" />
+                    <recurring_profile type="string" />
+                    <custom_attributes type="array" />
+                    <data_in_stores type="array" />
+                    <websites_data type="array" />
+                    <store_id />
+                    <store_level_changed_fields type="array"/>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/catalog/product/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/catalog/product/:sku</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <entity_with_store>
+                        <route>/catalog/product/:id/store/:store</route>
+                        <action_type>entity</action_type>
+                    </entity_with_store>
+                    <collection>
+                        <route>/catalog/product</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                    <collection_with_store>
+                        <route>/catalog/product/store/:store</route>
+                        <action_type>collection</action_type>
+                    </collection_with_store>
+                </routes>
+                <versions>1</versions>
+            </catalog_product>
+
+            <catalog_product_option>
+                <title>Catalog Product option</title>
+                <sort_order>46</sort_order>
+                <group>mageflow</group>
+                <working_model>catalog/product_option</working_model>
+                <privileges>
+                    <admin>
+                        <create>0</create>
+                        <retrieve>0</retrieve>
+                        <update>0</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <mf_guid>MF GUID</mf_guid>
+                </attributes>
+            </catalog_product_option>
+
+            <catalog_category translate="title" module="mageflow_connect">
+                <title>Catalog Category</title>
+                <sort_order>50</sort_order>
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_catalog_category</model>
+                <working_model>catalog/category</working_model>
+                <handler>mageflow_connect/handler_catalog_category</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <parent_id type="integer">Parent Id</parent_id>
+                    <created_at type="datetime">Created at</created_at>
+                    <updated_at type="datetime">Updated at</updated_at>
+                    <is_active type="boolean">Is active?</is_active>
+                    <include_in_menu type="boolean">Include in menu?</include_in_menu>
+                    <is_anchor type="boolean">Is anchor?</is_anchor>
+                    <path type="string">Path</path>
+                    <position type="integer">Position</position>
+                    <level type="integer">Level</level>
+                    <children_count type="integer">Children count</children_count>
+                    <name type="string">Name</name>
+                    <description type="string">Description</description>
+                    <url_key type="string">URL key</url_key>
+                    <url_path type="string">URL path</url_path>
+                    <path_in_store type="string">Path in store</path_in_store>
+                    <meta_title type="string">Meta title</meta_title>
+                    <meta_keywords type="string">Meta keywords</meta_keywords>
+                    <meta_description type="string">Meta description</meta_description>
+                    <image type="url">Image</image>
+                    <thumbnail type="string">Thumbnail</thumbnail>
+                    <filter_price_range type="string">Layered navigation price range</filter_price_range>
+                    <default_sort_by type="string">Default sort by</default_sort_by>
+                    <available_sort_by type="string">Available sort by</available_sort_by>
+                    <display_mode type="string">Display mode</display_mode>
+                    <landing_page type="string">Landing page</landing_page>
+                    <page_layout type="string">Page layout</page_layout>
+                    <custom_apply_to_products type="string">Apply custom design to products?</custom_apply_to_products>
+                    <custom_design type="string">Custom design</custom_design>
+                    <custom_design_from type="string">Custom design from date</custom_design_from>
+                    <custom_design_to type="string">Custom design to date</custom_design_to>
+                    <custom_layout_update type="string">Custom layout update</custom_layout_update>
+                    <custom_use_parent_settings type="boolean">Use parent settings for custom design?
+                    </custom_use_parent_settings>
+                    <ext_reference type="string">External reference</ext_reference>
+                    <deploymentpackage type="integer">deploymentpackage id</deploymentpackage>
+                    <mf_guid type="mfguid">mf guid</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes>
+                    <entity_type_id>Entity Type Id</entity_type_id>
+                </exclude_attributes>
+                <routes>
+                    <info>
+                        <route>/catalog/category/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/catalog/category/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <entity_with_store>
+                        <route>/catalog/category/:key/store/:store</route>
+                        <action_type>entity</action_type>
+                    </entity_with_store>
+                    <collection>
+                        <route>/catalog/category</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                    <collection_with_store>
+                        <route>/catalog/category/store/:store</route>
+                        <action_type>collection</action_type>
+                    </collection_with_store>
+                </routes>
+                <versions>1</versions>
+            </catalog_category>
+            <catalog_attribute translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_catalog_attribute</model>
+                <working_model>eav/entity_attribute</working_model>
+                <table>eav/attribute</table>
+                <title>Catalog Attribute</title>
+                <sort_order>60</sort_order>
+                <handler>mageflow_connect/handler_catalog_attribute</handler>
+                <aliases>
+                    <Mage_Catalog_Model_Resource_Eav_Attribute/>
+                </aliases>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <response_meta>Response metainfo</response_meta>
+                    <items>Attributes</items>
+                    <entity_type_id>entity_type_id</entity_type_id>
+                    <attribute_code>attribute_code</attribute_code>
+                    <attribute_model>attribute_model</attribute_model>
+                    <backend_model>backend_model</backend_model>
+                    <backend_type>backend_type</backend_type>
+                    <backend_table>backend_table</backend_table>
+                    <frontend_model>frontend_model</frontend_model>
+                    <frontend_input>frontend_input</frontend_input>
+                    <frontend_label>frontend_label</frontend_label>
+                    <frontend_class>frontend_class</frontend_class>
+                    <source_model>source_model</source_model>
+                    <is_required>is_required</is_required>
+                    <is_user_defined>is_user_defined</is_user_defined>
+                    <default_value>default_value</default_value>
+                    <is_unique>is_unique</is_unique>
+                    <note>note</note>
+                    <mf_guid>mf_guid</mf_guid>
+                    <created_at>created_at</created_at>
+                    <updated_at>updated_at</updated_at>
+                    <frontend_input_renderer>frontend_input_renderer</frontend_input_renderer>
+                    <is_global>is_global</is_global>
+                    <is_visible>is_visible</is_visible>
+                    <is_searchable>is_searchable</is_searchable>
+                    <is_filterable>is_filterable</is_filterable>
+                    <is_comparable>is_comparable</is_comparable>
+                    <is_visible_on_front>is_visible_on_front</is_visible_on_front>
+                    <is_html_allowed_on_front>is_html_allowed_on_front</is_html_allowed_on_front>
+                    <is_used_for_price_rules>is_used_for_price_rules</is_used_for_price_rules>
+                    <is_filterable_in_search>is_filterable_in_search</is_filterable_in_search>
+                    <used_in_product_listing>used_in_product_listing</used_in_product_listing>
+                    <used_for_sort_by>used_for_sort_by</used_for_sort_by>
+                    <is_configurable>is_configurable</is_configurable>
+                    <apply_to>apply_to</apply_to>
+                    <is_visible_in_advanced_search>is_visible_in_advanced_search</is_visible_in_advanced_search>
+                    <position>position</position>
+                    <is_wysiwyg_enabled>is_wysiwyg_enabled</is_wysiwyg_enabled>
+                    <is_used_for_promo_rules>is_used_for_promo_rules</is_used_for_promo_rules>
+                    <form_key>form_key</form_key>
+                    <default_value_text>default_value_text</default_value_text>
+                    <default_value_yesno>default_value_yesno</default_value_yesno>
+                    <default_value_date>default_value_date</default_value_date>
+                    <default_value_textarea>default_value_textarea</default_value_textarea>
+                    <modulePrefix>modulePrefix</modulePrefix>
+                    <store_labels>store_labels</store_labels>
+                    <options>Attribute options</options>
+                    <option>Attribute option</option>
+                    <deploymentpackage>deploymentpackage id</deploymentpackage>
+                    <default>default</default>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+
+                <routes>
+                    <info>
+                        <route>/catalog/attribute/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/catalog/attribute/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/catalog/attribute</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </catalog_attribute>
+
+            <catalog_attributeset translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_catalog_attributeset</model>
+                <working_model>eav/attribute_set</working_model>
+                <title>Catalog Attributeset</title>
+                <sort_order>70</sort_order>
+                <collection>eav/entity_attribute_set</collection>
+                <handler>mageflow_connect/handler_catalog_attributeset</handler>
+                <aliases>
+                    <Mage_Eav_Model_Attribute_Set/>
+                    <Mage_Eav_Model_Entity_Attribute_Set/>
+                </aliases>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <entity_type_id>entity type id</entity_type_id>
+                    <attribute_set_name>attribute set name</attribute_set_name>
+                    <sort_order>sort order</sort_order>
+                    <created_at entity_field="creation_time">Created at</created_at>
+                    <updated_at entity_field="update_time">Updated at</updated_at>
+                    <deploymentpackage>Deployment package for rollback</deploymentpackage>
+                    <mf_guid>MF GUID</mf_guid>
+                    <groups>groups</groups>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <dependencies>
+                    <catalog_attribute_group/>
+                </dependencies>
+                <routes>
+                    <info>
+                        <route>/catalog/attributeset/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/catalog/attributeset/:key</route>
+                        <action_type>collection</action_type>
+                    </entity>
+                    <collection>
+                        <route>/catalog/attributeset</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </catalog_attributeset>
+
+            <!-- Attribute group -->
+            <catalog_attributegroup translate="title" module="mageflow_connect" enabled="true">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_catalog_attributegroup</model>
+                <working_model>eav/attribute_group</working_model>
+                <title>Catalog Attributegroup</title>
+                <sort_order>80</sort_order>
+                <handler>mageflow_connect/handler_catalog_attributegroup</handler>
+                <aliases>
+                    <Mage_Eav_Model_Entity_Attribute_Group/>
+                </aliases>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <attribute_group_id>entity type id</attribute_group_id>
+                    <attribute_group_name>attribute group name</attribute_group_name>
+                    <attribute_set_name></attribute_set_name>
+                    <attribute_set_id></attribute_set_id>
+                    <sort_order>sort order</sort_order>
+                    <created_at entity_field="creation_time">Created at</created_at>
+                    <updated_at entity_field="update_time">Updated at</updated_at>
+                    <deploymentpackage>Deployment package for rollback</deploymentpackage>
+                    <mf_guid>MF GUID</mf_guid>
+                    <entity_type_id>Entity Type ID</entity_type_id>
+                    <attributes>Attributes</attributes>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <dependencies>
+                    <catalog_attribute/>
+                </dependencies>
+                <routes>
+                    <info>
+                        <route>/catalog/attributegroup/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/catalog/attributegroup/:entity_type_id/:attribute_group_name/:attribute_set_id</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/catalog/attributegroup</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </catalog_attributegroup>
+
+            <system_info translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_info</model>
+                <working_model>core/app</working_model>
+                <title>System Info</title>
+                <sort_order>85</sort_order>
+                <privileges>
+                    <admin>
+                        <create>0</create>
+                        <retrieve>1</retrieve>
+                        <update>0</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <updated_at>Updated at (now())</updated_at>
+                    <platform_info>Information about PHP platform</platform_info>
+                    <os>Operating System type</os>
+                    <active_sessions>Active sessions (int)</active_sessions>
+                    <total_memory>Total memory (bytes)</total_memory>
+                    <total_disk>Total disk space (bytes)</total_disk>
+                    <memory_usage>Memory usage of current script (bytes)</memory_usage>
+                    <magento_performance_history>Magento instance performance history (array with various data)
+                    </magento_performance_history>
+                    <free_memory>Free memory (bytes)</free_memory>
+                    <free_disk>Free disk space(bytes)</free_disk>
+                    <active_sessions>Number of current active sessions</active_sessions>
+                    <cpu_cores>Number of CPU cores</cpu_cores>
+                    <cpu_load>Current CPU load (5 min avg load / # of cores)</cpu_load>
+                    <version>Version</version>
+                    <cache>cache</cache>
+                    <mfx_version>MFx version</mfx_version>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/info/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/system/info</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                </routes>
+                <versions>1</versions>
+            </system_info>
+
+            <system_baseurl>
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_baseurl</model>
+                <working_model>adminhtml/system_config_backend_baseurl</working_model>
+                <title>Base URL</title>
+                <sort_order>90</sort_order>
+                <handler>mageflow_connect/handler_system_baseurl</handler>
+                <index_enabled>false</index_enabled>
+                <aliases>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Baseurl/>
+                    <Mage_XmlConnect_Model_Adminhtml_System_Config_Backend_Baseurl/>
+                </aliases>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <code>Store code</code>
+                    <scope>Scope</scope>
+                    <scope_id>Scope GUID</scope_id>
+                    <unsecure_base_url>Unsecure base URL</unsecure_base_url>
+                    <secure_base_url>Secure base URL</secure_base_url>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/baseurl/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <collection>
+                        <route>/system/baseurl</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                    <collection_by_path>
+                        <route>/system/baseurl/:store_code</route>
+                        <action_type>entity</action_type>
+                    </collection_by_path>
+                </routes>
+                <versions>1</versions>
+            </system_baseurl>
+
+            <system_configuration translate="title" module="mageflow_connect" enabled="true">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_configuration</model>
+                <working_model>core/config_data</working_model>
+                <title>System Configuration</title>
+                <sort_order>90</sort_order>
+                <handler>mageflow_connect/handler_system_configuration</handler>
+                <aliases>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Customer_Password_Link_Expirationperiod/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Currency_Allow/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Email_Address/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Email_Sender/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Price_Scope/>
+                    <Mage_Catalog_Model_System_Config_Backend_Catalog_Url_Rewrite_Suffix/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Catalog_Search_Type/>
+                    <Mage_CatalogInventory_Model_System_Config_Backend_Qtyincrements/>
+                    <Mage_CatalogInventory_Model_System_Config_Backend_Minqty/>
+                    <Mage_CatalogInventory_Model_System_Config_Backend_Minsaleqty/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Sitemap/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Sitemap_Cron/>
+                    <Mage_Rss_Model_System_Config_Backend_Links/>
+                    <Mage_Tax_Model_Config_Notification/>
+                    <Mage_Tax_Model_Config_Price_Include/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Store/>
+                    <Mage_Paypal_Model_System_Config_Backend_MerchantCountry/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Admin_Password_Link_Expirationperiod/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Admin_Usecustom/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Admin_Usecustompath/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Admin_Usesecretkey/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Locale/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Log_Cron/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Storage_Media_Database/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Translate/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Filename/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Serialized_Array/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Design_Package/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Design_Exception/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Image/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Image_Favicon/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Email_Logo/>
+                    <Mage_Adminhtml_Model_System_Config_Backend_Cookie/>
+                    <Mage_Contacts_Model_System_Config_Backend_Links/>
+                    <Mage_Adminhtml_Model_Config_Data/>
+                    <Mageflow_Connect_Model_Resource_Config_Data/>
+                    <Mage_Core_Model_Config_Data/>
+                </aliases>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <scope>scope</scope>
+                    <scope_id>Scope MF GUID</scope_id>
+                    <path>path</path>
+                    <value>value</value>
+                    <updated_at>updated_at</updated_at>
+                    <created_at>created_at</created_at>
+                    <mf_guid>mf_guid</mf_guid>
+                    <deploymentpackage>deploymentpackage</deploymentpackage>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/configuration/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <collection>
+                        <route>/system/configuration</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                    <!--<update>-->
+                    <!--<route>/system/configuration/:id</route>-->
+                    <!--<action_type>entity</action_type>-->
+                    <!--</update>-->
+                    <collection_by_path>
+                        <route>/system/configuration/:path</route>
+                        <action_type>entity</action_type>
+                    </collection_by_path>
+                    <collection_by_path_and_scope>
+                        <route>/system/configuration/:path/:scope_id</route>
+                        <action_type>entity</action_type>
+                    </collection_by_path_and_scope>
+                    <collection_with_store>
+                        <route>/system/configuration/store/:store_id</route>
+                        <action_type>entity</action_type>
+                    </collection_with_store>
+                </routes>
+                <versions>1</versions>
+            </system_configuration>
+
+            <changeset translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_changeset</model>
+                <working_model>mageflow_connect/changeset_item</working_model>
+                <handler>mageflow_connect/handler_system_changeset</handler>
+                <title>Changeset</title>
+                <sort_order>99</sort_order>
+                <index_enabled>false</index_enabled>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="title" module="mageflow_connect">
+                    <mf_guid>MF GUID</mf_guid>
+                    <encoding>Encoding</encoding>
+                    <type>Type</type>
+                    <status>Type</status>
+                    <updated_at>Updated at</updated_at>
+                    <created_at>Created at</created_at>
+                    <checksum>Checksum</checksum>
+                    <metainfo>Metainfo</metainfo>
+                    <content>Changeset content</content>
+                    <description>Description</description>
+                    <items>Items</items>
+                    <instance>Originating instance</instance>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/changeset/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/changeset/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/changeset</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                    <recover>
+                        <route>/changeset/recover/:key</route>
+                        <action_type>entity</action_type>
+                    </recover>
+                </routes>
+                <versions>1</versions>
+            </changeset>
+
+            <system_website translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_website</model>
+                <working_model>core/website</working_model>
+                <title>System Website</title>
+                <sort_order>100</sort_order>
+                <handler>mageflow_connect/handler_system_website</handler>
+                <aliases>
+                    <Mage_Core_Model_Store/>
+                    <Mage_Core_Model_Website/>
+                    <Mage_Core_Model_Store_Group/>
+                </aliases>
+                <privileges>
+                    <admin>
+                        <create>0</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <code type="website_code">code</code>
+                    <name type="string">name</name>
+                    <sort_order type="integer">sort_order</sort_order>
+                    <default_group_id type="integer">default_group_id</default_group_id>
+                    <is_default type="boolean">is_default</is_default>
+                    <groups type="array">groups</groups>
+                    <items>items</items>
+                    <stores type="array">stores</stores>
+                    <mf_guid>MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/website/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/system/website/:id</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/system/website</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_website>
+
+            <system_user translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_user</model>
+                <working_model>admin/user</working_model>
+                <title>System User</title>
+                <sort_order>110</sort_order>
+                <handler>mageflow_connect/handler_system_user</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <response_meta>Response meta info</response_meta>
+                    <items>User</items>
+                    <firstname>firstname</firstname>
+                    <lastname>lastname</lastname>
+                    <email>email</email>
+                    <username>username</username>
+                    <created>created</created>
+                    <modified>modified</modified>
+                    <logdate>logdate</logdate>
+                    <lognum>lognum</lognum>
+                    <reload_acl_flag>reload_acl_flag</reload_acl_flag>
+                    <is_active>is_active</is_active>
+                    <extra>extra</extra>
+                    <rp_token>rp_token</rp_token>
+                    <rp_token_created_at>rp_token_created_at</rp_token_created_at>
+                    <mf_guid>mf_guid</mf_guid>
+                    <roles>roles</roles>
+                    <created_at>created_at</created_at>
+                    <updated_at>updated_at</updated_at>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <dependencies>
+                    <system_role/>
+                </dependencies>
+                <routes>
+                    <info>
+                        <route>/system/user/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/system/user/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/system/user</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_user>
+            <!-- admin roles -->
+            <system_role>
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_role</model>
+                <working_model>admin/role</working_model>
+                <title>System Role</title>
+                <sort_order>115</sort_order>
+                <handler>mageflow_connect/handler_system_role</handler>
+                <aliases>
+                    <Mage_Admin_Model_Roles/>
+                </aliases>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <parent_id>Parent GUID</parent_id>
+                    <role_type>Role type</role_type>
+                    <role_name>Role name</role_name>
+                    <tree_level>Tree level</tree_level>
+                    <sort_order>Sort order</sort_order>
+                    <user_id>User GUID</user_id>
+                    <acl>ACL</acl>
+                    <users></users>
+                    <created_at></created_at>
+                    <updated_at></updated_at>
+                    <mf_guid>MF GUID</mf_guid>
+                </attributes>
+                <routes>
+                    <info>
+                        <route>/system/role/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/system/role/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/system/role</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_role>
+
+            <system_module translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_module</model>
+                <working_model>core/app</working_model>
+                <title>System Module</title>
+                <sort_order>120</sort_order>
+                <privileges>
+                    <admin>
+                        <create>0</create>
+                        <retrieve>1</retrieve>
+                        <update>0</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <response_meta>Response meta info</response_meta>
+                    <items>Modules</items>
+                    <module>Module</module>
+                    <name>name</name>
+                    <codePool>codePool</codePool>
+                    <active>active</active>
+                    <version>version</version>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/module/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <collection>
+                        <route>/system/module</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_module>
+
+            <system_cron translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_cron</model>
+                <working_model>core/app</working_model>
+                <title>System Cron</title>
+                <sort_order>130</sort_order>
+                <privileges>
+                    <admin>
+                        <create>0</create>
+                        <retrieve>1</retrieve>
+                        <update>0</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <response_meta>Response meta info</response_meta>
+                    <items>Modules</items>
+                    <name>name</name>
+                    <run>run</run>
+                    <schedule>schedule</schedule>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/cron/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <collection>
+                        <route>/system/cron</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_cron>
+
+            <system_rewrite translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_rewrite</model>
+                <working_model>core/app</working_model>
+                <title>System Rewrite</title>
+                <sort_order>140</sort_order>
+                <privileges>
+                    <admin>
+                        <create>0</create>
+                        <retrieve>1</retrieve>
+                        <update>0</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <response_meta>Response metainfo</response_meta>
+                    <items>Rewrites</items>
+                    <original>original</original>
+                    <rewriter>rewriter</rewriter>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/rewrite/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <collection>
+                        <route>/system/rewrite</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_rewrite>
+
+            <system_observer translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_observer</model>
+                <working_model>core/app</working_model>
+                <title>System Observers</title>
+                <sort_order>150</sort_order>
+                <privileges>
+                    <admin>
+                        <create>0</create>
+                        <retrieve>1</retrieve>
+                        <update>0</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <response_meta>Response metainfo</response_meta>
+                    <items>Observers</items>
+                    <event>event</event>
+                    <class>class</class>
+                    <method>method</method>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/observer/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <collection>
+                        <route>/system/observer</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                    <entity>
+                        <route>/system/observer/:id</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                </routes>
+                <versions>1</versions>
+            </system_observer>
+
+            <system_maintenance translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_maintenance</model>
+                <working_model>core/app</working_model>
+                <title>System Maintenance</title>
+                <sort_order>160</sort_order>
+                <privileges>
+                    <admin>
+                        <create>0</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <system_maintenance>Maintenance enabled/disabled</system_maintenance>
+                    <ip_whitelist>List of IP-s that can see frontend while maintenance mode is on</ip_whitelist>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/maintenance/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <collection>
+                        <route>/system/maintenance</route>
+                        <action_type>entity</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_maintenance>
+
+
+            <system_log translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_log</model>
+                <working_model>system/log</working_model>
+                <title>System Log</title>
+                <sort_order>170</sort_order>
+                <privileges>
+                    <admin>
+                        <create>0</create>
+                        <retrieve>1</retrieve>
+                        <update>0</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <items>items</items>
+                    <line>line</line>
+                    <log>log</log>
+                    <exception>exception</exception>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/log/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/system/log/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/system/log</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_log>
+
+            <system_last_access_time translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_lastaccesstime</model>
+                <title>Last Access Time</title>
+                <sort_order>180</sort_order>
+                <privileges>
+                    <admin>
+                        <create>0</create>
+                        <retrieve>1</retrieve>
+                        <update>0</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <last_access_time>Last Access Time as UNIX timestamp</last_access_time>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/last_access_time/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <collection>
+                        <route>/system/last_access_time</route>
+                        <action_type>entity</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_last_access_time>
+
+            <email_template translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_email_template</model>
+                <working_model>adminhtml/email_template</working_model>
+                <title>Transactional email template</title>
+                <sort_order>190</sort_order>
+                <handler>mageflow_connect/handler_email_template</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <template_code type="string">Template code</template_code>
+                    <template_text type="string">Template text</template_text>
+                    <template_styles type="string">Template styles</template_styles>
+                    <template_type type="integer">Template type</template_type>
+                    <template_subject type="string">Template subject</template_subject>
+                    <template_sender_name type="string">Template sender name</template_sender_name>
+                    <template_sender_email type="string">Template sender email</template_sender_email>
+                    <created_at entity_field="added_at" type="datetime">Created at</created_at>
+                    <updated_at entity_field="modified_at" type="datetime">Updated at</updated_at>
+                    <original_template_code type="string">Original template code</original_template_code>
+                    <original_template_variables type="string">Original template variables</original_template_variables>
+                    <deploymentpackage type="integer">Deployment package for rollback</deploymentpackage>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/email/template/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/email/template/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/email/template</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </email_template>
+
+            <newsletter_template translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_newsletter_template</model>
+                <working_model>newsletter/template</working_model>
+                <title>Newsletter template</title>
+                <sort_order>190</sort_order>
+                <handler>mageflow_connect/handler_newsletter_template</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <template_code type="string">Template code</template_code>
+                    <template_text type="string">Template text</template_text>
+                    <template_styles type="string">Template styles</template_styles>
+                    <template_type type="integer">Template type</template_type>
+                    <template_subject type="string">Template subject</template_subject>
+                    <template_sender_name type="string">Template sender name</template_sender_name>
+                    <template_sender_email type="string">Template sender email</template_sender_email>
+                    <created_at entity_field="added_at" type="datetime">Created at</created_at>
+                    <updated_at entity_field="modified_at" type="datetime">Updated at</updated_at>
+                    <original_template_code type="string">Original template code</original_template_code>
+                    <original_template_variables type="string">Original template variables</original_template_variables>
+                    <deploymentpackage type="integer">Deployment package for rollback</deploymentpackage>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/newsletter/template/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/newsletter/template/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/newsletter/template</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </newsletter_template>
+
+            <customer_group translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_customer_group</model>
+                <working_model>customer/group</working_model>
+                <title>Customer group</title>
+                <sort_order>190</sort_order>
+                <handler>mageflow_connect/handler_customer_group</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>0</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <customer_group_code type="string">Customer group code</customer_group_code>
+                    <tax_class type="string">Tax class</tax_class>
+                    <created_at entity_field="added_at" type="datetime">Created at</created_at>
+                    <updated_at entity_field="modified_at" type="datetime">Updated at</updated_at>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/customer/group/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/customer/group/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/customer/group</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </customer_group>
+
+            <cms_widget translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_cms_widget</model>
+                <working_model>widget/widget_instance</working_model>
+                <title>Cms widget</title>
+                <sort_order>190</sort_order>
+                <handler>mageflow_connect/handler_cms_widget</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <instance_type type="string">Instance type</instance_type>
+                    <title type="string">Title</title>
+                    <package_theme type="string">Package theme</package_theme>
+                    <stores type="array">Stores</stores>
+                    <widget_parameters type="array">Widget parameters</widget_parameters>
+                    <created_at entity_field="added_at" type="datetime">Created at</created_at>
+                    <updated_at entity_field="modified_at" type="datetime">Updated at</updated_at>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/cms/widget/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/cms/widget/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/cms/widget</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </cms_widget>
+
+            <system_design translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_design</model>
+                <working_model>core/design</working_model>
+                <title>Design</title>
+                <sort_order>190</sort_order>
+                <handler>mageflow_connect/handler_system_design</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <date_from entity_field="date_from" type="datetime">Date from</date_from>
+                    <date_to entity_field="date_to" type="datetime">Date to</date_to>
+                    <design type="string">Design</design>
+                    <store type="string">Store</store>
+                    <created_at entity_field="added_at" type="datetime">Created at</created_at>
+                    <updated_at entity_field="modified_at" type="datetime">Updated at</updated_at>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/design/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/system/design/:key</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/system/design</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_design>
+
+            <cms_poll translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_cms_poll</model>
+                <working_model>poll/poll</working_model>
+                <title>Poll</title>
+                <sort_order>190</sort_order>
+                <handler>mageflow_connect/handler_cms_poll</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <poll_title type="string">Poll title</poll_title>
+                    <store type="string">Store</store>
+                    <date_posted entity_field="added_at" type="datetime">Created at</date_posted>
+                    <date_closed entity_field="added_at" type="datetime">Created at</date_closed>
+                    <active type="integer">Active</active>
+                    <closed type="integer">Closed</closed>
+                    <answers_display type="integer">Poll type</answers_display>
+                    <answers type="array">Answers</answers>
+                    <stores type="array">Stores</stores>
+                    <created_at entity_field="added_at" type="datetime">Created at</created_at>
+                    <updated_at entity_field="modified_at" type="datetime">Updated at</updated_at>
+                    <deploymentpackage type="integer">Deployment package for rollback</deploymentpackage>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/cms/poll/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/cms/poll/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/cms/poll</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </cms_poll>
+
+            <sales_tax_class_product translate="title" module="mageflow_connect" enabled="true">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_sales_tax_class_product</model>
+                <working_model>tax/class</working_model>
+                <title>Sales tax class</title>
+                <sort_order>20</sort_order>
+                <handler>mageflow_connect/handler_sales_tax_class_product</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <class_name type="string">Class name</class_name>
+                    <class_type type="string">Class type</class_type>
+                    <created_at entity_field="creation_time" type="datetime">Created at</created_at>
+                    <updated_at entity_field="update_time" type="datetime">Updated at</updated_at>
+                    <mf_guid type="mfguid">mf_guid</mf_guid>
+                    <deploymentpackage type="integer">deploymentpackage id</deploymentpackage>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/sales/tax/class/product/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/sales/tax/class/product/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/sales/tax/class/product</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </sales_tax_class_product>
+
+            <sales_tax_class_customer translate="title" module="mageflow_connect" enabled="true">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_sales_tax_class_customer</model>
+                <working_model>tax/class</working_model>
+                <title>Sales tax class</title>
+                <sort_order>20</sort_order>
+                <handler>mageflow_connect/handler_sales_tax_class_customer</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <class_name type="string">Class name</class_name>
+                    <class_type type="string">Class type</class_type>
+                    <created_at entity_field="creation_time" type="datetime">Created at</created_at>
+                    <updated_at entity_field="update_time" type="datetime">Updated at</updated_at>
+                    <mf_guid type="mfguid">mf_guid</mf_guid>
+                    <deploymentpackage type="integer">deploymentpackage id</deploymentpackage>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/sales/tax/class/customer/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/sales/tax/class/customer/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/sales/tax/class/customer</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </sales_tax_class_customer>
+
+            <sales_tax_rate translate="title" module="mageflow_connect" enabled="true">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_sales_tax_rate</model>
+                <working_model>tax/calculation_rate</working_model>
+                <title>Sales tax rate</title>
+                <sort_order>20</sort_order>
+                <handler>mageflow_connect/handler_sales_tax_rate</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <tax_country_id type="string">Country id</tax_country_id>
+                    <tax_region_id type="integer">Region id</tax_region_id>
+                    <tax_postcode type="string">Postcode</tax_postcode>
+                    <code type="string">Code</code>
+                    <rate type="decimal">Rate</rate>
+                    <zip_is_range type="integer">Zip in range</zip_is_range>
+                    <zip_from type="integer">Zip from</zip_from>
+                    <zip_to type="integer">Zip to</zip_to>
+                    <titles type="array">Titles</titles>
+                    <created_at entity_field="creation_time" type="datetime">Created at</created_at>
+                    <updated_at entity_field="update_time" type="datetime">Updated at</updated_at>
+                    <mf_guid type="mfguid">mf_guid</mf_guid>
+                    <deploymentpackage type="integer">deploymentpackage id</deploymentpackage>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/sales/tax/rate/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/sales/tax/rate/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/sales/tax/rate</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </sales_tax_rate>
+
+            <sales_tax_rule translate="title" module="mageflow_connect" enabled="true">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_sales_tax_rule</model>
+                <working_model>tax/calculation_rule</working_model>
+                <title>Sales tax rule</title>
+                <sort_order>20</sort_order>
+                <handler>mageflow_connect/handler_sales_tax_rule</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <code type="string">Code</code>
+                    <priority type="integer">Priority</priority>
+                    <position type="integer">Position</position>
+                    <calculate_subtotal type="integer">Calculate subtotal</calculate_subtotal>
+                    <calculations type="array">Calculations</calculations>
+                    <created_at entity_field="creation_time" type="datetime">Created at</created_at>
+                    <updated_at entity_field="update_time" type="datetime">Updated at</updated_at>
+                    <mf_guid type="mfguid">mf_guid</mf_guid>
+                    <deploymentpackage type="integer">deploymentpackage id</deploymentpackage>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/sales/tax/rule/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/sales/tax/rule/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/sales/tax/rule</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </sales_tax_rule>
+
+            <system_orderstatus translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_system_orderstatus</model>
+                <working_model>sales/order_status</working_model>
+                <title>Orderstatus</title>
+                <sort_order>190</sort_order>
+                <handler>mageflow_connect/handler_system_orderstatus</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <orderstatus type="string">Orderstatus</orderstatus>
+                    <status type="string">Status</status>
+                    <label type="string">Label</label>
+                    <store_labels type="array">Store Labels</store_labels>
+                    <created_at entity_field="added_at" type="datetime">Created at</created_at>
+                    <updated_at entity_field="modified_at" type="datetime">Updated at</updated_at>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/system/orderstatus/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/system/orderstatus/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/system/orderstatus</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </system_orderstatus>
+
+            <promotion_rule_catalog translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_promotion_rule_catalog</model>
+                <working_model>catalogrule/rule</working_model>
+                <title>Orderstatus</title>
+                <sort_order>190</sort_order>
+                <handler>mageflow_connect/handler_promotion_rule_catalog</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <name type="string">Name</name>
+                    <description type="string">Description</description>
+                    <from_date type="datetime">From date</from_date>
+                    <to_date type="datetime">To date</to_date>
+                    <is_active type="integer">Is active</is_active>
+                    <stop_rules_processing type="integer">Stop rules processing</stop_rules_processing>
+                    <sort_order type="integer">Sort order</sort_order>
+                    <simple_action type="string">Simple action</simple_action>
+                    <discount_amount type="decimal">Discount amount</discount_amount>
+                    <sub_is_enable type="integer">Sub is enabled</sub_is_enable>
+                    <sub_simple_action type="string">Sub simple action</sub_simple_action>
+                    <sub_discount_amount type="decimal">Sub discount amount</sub_discount_amount>
+                    <conditions type="array">datadump</conditions>
+                    <websites type="array">Websites</websites>
+                    <customer_groups type="array">Customer groups</customer_groups>
+                    <actions type="array">datadump</actions>
+                    <created_at entity_field="added_at" type="datetime">Created at</created_at>
+                    <updated_at entity_field="modified_at" type="datetime">Updated at</updated_at>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/promotion/rule/catalog/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/promotion/rule/catalog/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/promotion/rule/catalog</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </promotion_rule_catalog>
+
+            <promotion_rule_checkout translate="title" module="mageflow_connect">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_promotion_rule_checkout</model>
+                <working_model>salesrule/rule</working_model>
+                <title>Promotion rule checkout</title>
+                <sort_order>190</sort_order>
+                <handler>mageflow_connect/handler_promotion_rule_checkout</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <name type="string">Name</name>
+                    <description type="string">Description</description>
+                    <from_date type="datetime">From date</from_date>
+                    <to_date type="datetime">To date</to_date>
+                    <is_active type="integer">Is active</is_active>
+                    <sort_order type="integer">Sort order</sort_order>
+                    <discount_amount type="decimal">Sub discount amount</discount_amount>
+                    <discount_qty type="decimal">Sub discount amount</discount_qty>
+                    <simple_action type="string">Simple action</simple_action>
+                    <is_advanced type="integer">Is advanced</is_advanced>
+                    <discount_step type="integer">Sub is enabled</discount_step>
+                    <uses_per_coupon type="integer">Sub is enabled</uses_per_coupon>
+                    <uses_per_customer type="integer">Sub is enabled</uses_per_customer>
+                    <stop_rules_processing type="integer">Stop rules processing</stop_rules_processing>
+                    <conditions type="array">datadump</conditions>
+                    <actions type="array">datadump</actions>
+                    <coupons type="array">datadump</coupons>
+                    <websites type="array">Websites</websites>
+                    <store_labels type="array">Store labels</store_labels>
+                    <customer_groups type="array">Customer groups</customer_groups>
+                    <product_ids type="string">Simple action</product_ids>
+                    <simple_free_shipping type="integer">Simple action</simple_free_shipping>
+                    <apply_to_shipping type="integer">Simple action</apply_to_shipping>
+                    <times_used type="integer">Simple action</times_used>
+                    <is_rss type="integer">Simple action</is_rss>
+                    <coupon_type type="integer">Simple action</coupon_type>
+                    <use_auto_generation type="integer">Simple action</use_auto_generation>
+                    <created_at entity_field="added_at" type="datetime">Created at</created_at>
+                    <updated_at entity_field="modified_at" type="datetime">Updated at</updated_at>
+                    <mf_guid type="mfguid">MF GUID</mf_guid>
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/promotion/rule/checkout/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/promotion/rule/checkout/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/promotion/rule/checkout</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </promotion_rule_checkout>
+
+            <sales_termsandconditions translate="title" module="mageflow_connect" enabled="true">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_sales_termsandconditions</model>
+                <working_model>checkout/agreement</working_model>
+                <title>Sales terms and conditions</title>
+                <sort_order>20</sort_order>
+                <handler>mageflow_connect/handler_sales_termsandconditions</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <name />
+                    <is_active />
+                    <is_html />
+                    <stores type="array" />
+                    <checkbox_text />
+                    <content />
+                    <content_height />
+                    <mf_guid type="mfguid">mf_guid</mf_guid>
+                    <created_at entity_field="creation_time" type="datetime">Created at</created_at>
+                    <updated_at entity_field="update_time" type="datetime">Updated at</updated_at>
+                    <raw_data type="array" />
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/sales/termsandconditions/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/sales/termsandconditions/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/sales/termsandconditions</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </sales_termsandconditions>
+
+            <catalog_searchterms translate="title" module="mageflow_connect" enabled="true">
+                <group>mageflow</group>
+                <model>mageflow_connect/api2_catalog_searchterms</model>
+                <working_model>catalogsearch/query</working_model>
+                <title>Catalog searchterms</title>
+                <sort_order>20</sort_order>
+                <handler>mageflow_connect/handler_catalog_searchterms</handler>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>0</retrieve>
+                    </customer>
+                    <guest>
+                        <retrieve>0</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="" module="mageflow_connect">
+                    <query_text />
+                    <num_results />
+                    <popularity />
+                    <redirect />
+                    <synonym_for />
+                    <store_id />
+                    <display_in_terms />
+                    <is_active />
+                    <is_processed />
+                    <mf_guid type="mfguid">mf_guid</mf_guid>
+                    <created_at entity_field="creation_time" type="datetime">Created at</created_at>
+                    <updated_at entity_field="update_time" type="datetime">Updated at</updated_at>
+                    <raw_data type="array" />
+                </attributes>
+                <entity_only_attributes/>
+                <exclude_attributes/>
+                <routes>
+                    <info>
+                        <route>/catalog/searchterms/info</route>
+                        <action_type>info</action_type>
+                    </info>
+                    <entity>
+                        <route>/catalog/searchterms/:mf_guid</route>
+                        <action_type>entity</action_type>
+                    </entity>
+                    <collection>
+                        <route>/catalog/searchterms</route>
+                        <action_type>collection</action_type>
+                    </collection>
+                </routes>
+                <versions>1</versions>
+            </catalog_searchterms>
+
+        </resources>
+    </api2>
+</config>

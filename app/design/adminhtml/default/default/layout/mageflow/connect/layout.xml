@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * layout.xml
+ *
+ * @category   MFX
+ * @package    Mageflow_Connect
+ * @subpackage Lib
+ * @author     Prototypely Ltd, Estonia <info@prototypely.com>
+ * @copyright  Copyright © 2017 Prototypely Ltd, Estonia (http://prototypely.com) 
+ * @license MIT Copyright (c) 2017 Prototypely Ltd
+ * @link       http://mageflow.com/
+ */
+-->
+<layout>
+    <default>
+        <reference name="before_body_end">
+            <block type="mageflow_connect/adminhtml_page_head" name="mageflow_js_container" as="mageflow_js_container" template="mageflow/connect/js.phtml">
+            </block>
+        </reference>
+        <reference name="js">
+            <block type="mageflow_connect/adminhtml_initjs" name="mageflow_connect_initjs" />
+        </reference>
+    </default>
+    <mageflow_connect_ajax_index>
+        <block type="core/block" name="root" output="toHtml" />
+    </mageflow_connect_ajax_index>
+
+    <mageflow_connect_oauth_callback_test>
+        <block type="core/block" name="root" output="toHtml" />
+    </mageflow_connect_oauth_callback_test>
+</layout>
