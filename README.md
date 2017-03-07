@@ -13,6 +13,10 @@ modman clone git@bitbucket.org:mageflow/mfx.git
 Use official releases only for use on production servers. Code in master branch should be considered as under constant development.
 Stable releases are marked as GIT tags. It's recommended to use the released software packages and install these from Magento Connect.
 
+### Installing extension ###
+
+See [INSTALL.txt](INSTALL.txt)
+
 #### Installing extension with modman ####
 
 To install, run 
