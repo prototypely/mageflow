@@ -15,7 +15,7 @@ Stable releases are marked as GIT tags. It's recommended to use the released sof
 
 ### Installing extension ###
 
-See [INSTALL.txt](INSTALL.txt)
+See [INSTALL.md](INSTALL.md)
 
 #### Installing extension with modman ####
 
