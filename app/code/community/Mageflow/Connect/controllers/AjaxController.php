@@ -41,6 +41,7 @@ class Mageflow_Connect_AjaxController
 		$this->getResponse()->setHeader( 'Content-Type', 'application/json', true );
 		$out           = Mage::helper( 'core' )->jsonDecode( $response->getBody() );
 		$out['status'] = $response->getStatus();
+
 		$outJson       = Mage::helper( 'core' )->jsonEncode( $out );
 		$this->getResponse()->setBody( $outJson );
 	}

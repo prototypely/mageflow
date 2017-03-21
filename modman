@@ -33,7 +33,6 @@ shell/last_access_time.php                                   	shell/last_access_
 shell/dump_oauth_keys.php                                   	shell/dump_oauth_keys.php
 shell/media_indexer.php                                         shell/media_indexer.php
 shell/reindex_changeitems.php                                   shell/reindex_changeitems.php
-var/connect/MageFlow_Connector.xml                              var/connect/MageFlow_Connector.xml
 var/connect/MageFlow.xml                                        var/connect/MageFlow.xml
 var/connect/package.xml                                         var/connect/package.xml
 tests								                            tests/mfx

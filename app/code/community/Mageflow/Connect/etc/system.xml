@@ -53,7 +53,17 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
+                            <comment>The URL must end with a slash /</comment>
                         </url>
+                        <admin_path translate="label">                            
+                            <label>Custom admin path:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Specify custom admin path if set at destination. Leave empty otherwise. Just path, no slashes etc.</comment>
+                        </admin_path>
                         <consumer_key>
                             <label>Consumer key</label>
                             <frontend_type>obscure</frontend_type>

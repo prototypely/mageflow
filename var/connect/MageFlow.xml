@@ -1,5 +1,6 @@
 <_>
-   <form_key>kxYMUXd7GhopFFOT</form_key>
+   <form_key>KxJTcNE7ShP2JVJx</form_key>
+   <_create/>
    <name>MageFlow</name>
    <channel>community</channel>
    <version_ids>
@@ -8,11 +9,16 @@
    <summary>MageFlow integrates a Magento instance with another Magento instance.</summary>
    <description>MageFlow is an essential tool for every Magento development team.
 MageFlow Connector integrates a Magento instance to another Magento Instance via REST API.</description>
-   <license>MageFlow Extension End User License</license>
-   <license_uri>http://mageflow.com/licenses/mfx/eula.txt</license_uri>
-   <version>2.0.0</version>
+   <license>MIT Copyright (c) 2017 Prototypely Ltd</license>
+   <license_uri>https://opensource.org/licenses/MIT</license_uri>
+   <version>2.0.1</version>
    <stability>stable</stability>
-   <notes>2.0.0 First release with Magento-to-Magento connectivity</notes>
+   <notes>2.0.1 Release Notes
+- Configurable products bugfix
+- Custom admin URL support
+- Empty instance key fix
+
+2.0.0 First release with Magento-to-Magento connectivity</notes>
    <authors>
       <name>
          <name>MageFlow</name>
@@ -41,7 +47,7 @@ MageFlow Connector integrates a Magento instance to another Magento Instance via
             <max/>
          </max>
          <files>
-            <files>                                                                                                                                                                                                                            </files>
+            <files>                                                                                                                                                                                                                                    </files>
          </files>
       </package>
       <extension>

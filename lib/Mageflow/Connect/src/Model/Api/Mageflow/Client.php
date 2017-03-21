@@ -171,7 +171,6 @@ class Client extends AbstractClient
     private function makeHttpRequest($uri, $method, $data = array())
     {
         try {
-
             $this->getLogger()->debug(sprintf('Making %s request to %s', $method, $uri));
 
             $token = new \Zend_Oauth_Token_Access();

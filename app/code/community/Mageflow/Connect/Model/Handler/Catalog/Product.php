@@ -186,6 +186,11 @@ class Mageflow_Connect_Model_Handler_Catalog_Product
             if ($productIsConfigurable) {
                 $this->log('setting product to configurable');
                 $savedEntity->getTypeInstance()->setUsedProductAttributeIds(array($attributeId));
+
+                $savedEntity
+                    ->unsetData('_cache_instance_products')
+ 	                >unsetData('_cache_instance_configurable_attributes');
+
                 $configurableAttributesData = $savedEntity->getTypeInstance()->getConfigurableAttributesAsArray();
                 $savedEntity->setCanSaveConfigurableAttributes(true);
                 $savedEntity->setConfigurableAttributesData($configurableAttributesData);
@@ -596,16 +601,16 @@ class Mageflow_Connect_Model_Handler_Catalog_Product
 
         $modelCollection = Mage::getModel('catalog/product')->getCollection();
 
-        if (isset($identityData['mf_guid'])) {
-            $modelCollection->addFilter('mf_guid', $identityData['mf_guid']);
-        }
+//        if (isset($identityData['mf_guid'])) {
+//            $modelCollection->addFilter('mf_guid', $identityData['mf_guid']);
+//        }
 
-        if (!isset($identityData['mf_guid']) && isset($identityData['sku'])) {
+//        if (!isset($identityData['mf_guid']) && isset($identityData['sku'])) {
             $modelCollection->addFilter('sku', $identityData['sku']);
-        }
+//        }
 
         $model = $modelCollection->getFirstItem();
-        $modelId = $model->getId();
+//        $modelId = $model->getId();
         if ($model instanceof Mage_Catalog_Model_Product && $model->getId() > 0) {
             $model->load($model->getId());
             $loadedModel = $model;

@@ -10,7 +10,7 @@
  * @subpackage Model
  * @author     Prototypely Ltd, Estonia <info@prototypely.com>
  * @copyright  Copyright © 2017 Prototypely Ltd, Estonia (http://prototypely.com) 
- * @license MIT Copyright (c) 2017 Prototypely Ltd
+ * @license    MIT Copyright (c) 2017 Prototypely Ltd
  * @link       http://mageflow.com/
  */
 
@@ -22,7 +22,7 @@
  * @subpackage Model
  * @author     Prototypely Ltd, Estonia <info@prototypely.com>
  * @copyright  Copyright © 2017 Prototypely Ltd, Estonia (http://prototypely.com) 
- * @license MIT Copyright (c) 2017 Prototypely Ltd
+ * @license    MIT Copyright (c) 2017 Prototypely Ltd
  * @link       http://mageflow.com/
  */
 class Mageflow_Connect_Model_Api2_Ping_Rest_Admin_V1
@@ -60,6 +60,19 @@ class Mageflow_Connect_Model_Api2_Ping_Rest_Admin_V1
 		 */
 		$sessionInfoModel       = Mage::getModel( 'mageflow_connect/system_info_session' );
 		$out['active_sessions'] = $sessionInfoModel->getNumberOfActiveSessions();
+
+		if ( Mage::app()->getStore()->getConfig( Mageflow_Connect_Model_System_Config::API_INSTANCE_KEY ) == "" ) {
+			$instanceKey = substr(
+				sha1(
+					Mage::app()->getStore()->getConfig( Mage_Core_Model_Store::XML_PATH_UNSECURE_BASE_URL )
+				),
+				0,
+				6 );
+			Mage::app()->getConfig()->saveConfig(
+				Mageflow_Connect_Model_System_Config::API_INSTANCE_KEY,
+				$instanceKey
+			);
+		}
 
 		$out['instance_key'] = Mage::app()->getStore()
 		                           ->getConfig( Mageflow_Connect_Model_System_Config::API_INSTANCE_KEY );

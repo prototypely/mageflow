@@ -45,23 +45,6 @@ if ($('btn_connect_mf')) {
 }
 
 /**
- * Handles click on id=btn_oauthconnect
- */
-//if ($('btn_oauthconnect')) {
-//    $('btn_oauthconnect').observe('click', function (e) {
-//        var sender = e.findElement('button');
-//        var url = sender.readAttribute('data-api-url');
-//        new Ajax.Request(url, {
-//            onSuccess: function (transport) {
-//                var response = transport.responseJSON;
-//                console.log(response);
-//            }
-//        });
-//    });
-//}
-
-
-/**
  * Event handlers
  */
 if ($('btn_apitest')) {
