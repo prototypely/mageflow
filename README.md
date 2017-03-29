@@ -49,9 +49,6 @@ Before uninstalling, please:
 1. Make sure you do have a backup of your database
 2. Delete all records from your Magento database table eav_attribute where attribute_code='mf_guid'
 
-# MageFlow Developer Resources #
-
-See [DeveloperGuide](/mageflow/mfx/wiki/DeveloperGuide)
 
 ## Who do I talk to? ##
 
