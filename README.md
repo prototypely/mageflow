@@ -1,7 +1,7 @@
 # README #
 
 MageFlow Connect extension (MFX) uses modman. To install it for development or testing, run modman:
-modman clone git@bitbucket.org:mageflow/mfx.git
+modman clone git@github.com:prototypely/mageflow.git
 
 ### What is this repository for? ###
 
@@ -24,7 +24,7 @@ To install, run
 ```
 #!bash
 modman init
-modman clone git@bitbucket.org:mageflow/mfx.git
+modman clone git@github.com:prototypely/mageflow.git
 ```
 
 To update, run 
