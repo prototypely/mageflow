@@ -35,7 +35,7 @@ class Mageflow_Connect_Model_Handler_Catalog_Product
      *
      * @return array|null
      */
-    public function processData(array $data)
+    public function processData(array $data, array $metaInfo = array())
     {
         $model = null;
         $message = null;
@@ -181,7 +181,7 @@ class Mageflow_Connect_Model_Handler_Catalog_Product
                 }
             }
 
-            $savedEntity = $this->processProduct($data);
+            $savedEntity = $this->processProduct($data, $metaInfo);
 
             if ($productIsConfigurable) {
                 $this->log('setting product to configurable');
@@ -835,7 +835,7 @@ class Mageflow_Connect_Model_Handler_Catalog_Product
      * @return array
      * @throws Exception
      */
-    public function processProduct(array $data)
+    public function processProduct(array $data, array $metaInfo = array())
     {
         $data = isset($data[0]) ? $data[0] : $data;
 
@@ -920,6 +920,7 @@ class Mageflow_Connect_Model_Handler_Catalog_Product
             $model->setData('media_gallery', $mediaGalleryData);
 
             $this->getProductMediaGallery($model)->updateImage($model, $image['file'], $data);
+            $this->copyProductImage($image['file'], $metaInfo);
         }
 
         $model->setData('is_mageflow_import', true);
@@ -936,6 +937,32 @@ class Mageflow_Connect_Model_Handler_Catalog_Product
             );
         }
         return $model;
+    }
+
+    protected function copyProductImage($file, array $metaInfo = array())
+    {
+        // Copy image file
+        if (isset($metaInfo['secure_base_url'])) {
+            $imageSourceUrl = $metaInfo['secure_base_url'] . 'media/catalog/product' . $file;
+            $imageTargetPath = Mage::getBaseDir('media') . '/catalog/product' . $file;
+            $sourceDate = filemtime($imageSourceUrl);
+            $targetDate = filemtime($imageTargetPath);
+
+            $client = new Zend_Http_Client($imageSourceUrl, [
+                'adapter'     => 'Zend_Http_Client_Adapter_Curl',
+                'curloptions' => array(CURLOPT_SSL_VERIFYPEER => false),
+            ]);
+            try {
+                $imageData = $client->request()->getBody();
+                // Override the target image when the source is newer or we don't have all last modification dates
+                if ($imageData && (!$targetDate || !$sourceDate || $sourceDate > $targetDate)) {
+                    mkdir(dirname($imageTargetPath), 0777, true);
+                    file_put_contents($imageTargetPath, $imageData);
+                }
+            } catch (\Exception $ex) {
+                //
+            }
+        }
     }
 
     /**
