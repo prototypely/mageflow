@@ -122,8 +122,13 @@ class Mageflow_Connect_PullController
             $typeName = str_replace('/', '_', $changesetItem->getType());
 
             $content = Mage::helper('core')->jsonDecode($changesetItem->getContent());
+            try {
+                $metaInfo = Zend_Json::decode($changesetItem->getData('meta_info'));
+            } catch (\Exception $ex) {
+                $metaInfo = [];
+            }
 
-            $processingResponse = $this->getDataProcessor($typeName)->processData($content);
+            $processingResponse = $this->getDataProcessor($typeName)->processData($content, $metaInfo);
             if ($processingResponse['status'] && $processingResponse['status'] == 'success') {
                 $changesetItem->setStatus('Applied');
             } else {
