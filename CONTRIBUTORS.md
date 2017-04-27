@@ -3,3 +3,4 @@ The initial version of MageFlow was created in Estonia by:
 - Gert Stahl
 - Urmas Lipso
 - Peeter Perens
+- Ruud Seberechts
